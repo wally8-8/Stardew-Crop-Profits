@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="A Stardew Valley crop profits calculator and visualizer." />
+	<title>Stardew Profits - Help</title>
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="style/style.css" />
+	<link rel="shortcut icon" type="image/png" href="img/ancientfruit.png">
+</head>
+
+<body>
+
+	<div class="title">
+	</div>
+
+	<div class="help">
+		<h1>星露谷利润计算器</h1>
+		<p>《星露谷利润计算器》是一个计算和绘图工具，旨在帮助流行游戏《星露谷物语》的玩家轻松计算和比较在不同条件下种植不同作物所获利润。</p>
+		<h1>使用</h1>
+		<p>该工具分为两个部分:图形框和选项框。选项框允许用户快速更改参数，然后在图形上反映出来。</p>
+		<h2>图形框</h2>
+		<p>图形框根据用户设置的选项显示实时渲染的图形。
+			条形数量根据设置的条件（比如不同季节）而变化。金币利润可以作为一个刻度在侧边查看。图表显示了利润和损失。<br>此外，如果勾选 了计算种子购买的损失，该损失将显示为橙色；如果勾选
+			了化肥购买的损失，损失将显示为棕色。将鼠标悬停在作物上会显示有关利润、损失等信息的提示。点击作物会打开该作物的官方Wiki页面。
+		</p>
+		<h2>选项框</h2>
+		<p>下表描述了所有选项以及它们如何影响图形。</p>
+		<table cellspacing="4">
+			<col width="25%">
+			<thead>
+				<tr>
+					<th>选项</th>
+					<th>描述</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>季节</td>
+					<td>改变作物的季节。这将影响图表中显示的作物列表，因为只有某些作物在特定季节生长。此外，所有季节都有最多28天的计算限制。<em> 温室季节</em>
+						没有这样的限制，它显示了所有的作物，并允许长达10万天的持续时间。</td>
+				</tr>
+				<tr>
+					<td>跨季节</td>
+					<td>如果勾选此选项，则计算将考虑到季节变化时不会死亡的作物。</td>
+				</tr>
+				<tr>
+					<td>当季天数</td>
+					<td>指定用于计算的天数。持续时间越短，作物生长的时间就越少。如果设置过低的值，有些作物甚至没有时间生长。 此选项被设置为只读， 除非在<em> 季节 </em>下选择了<em> 温室 </em>
+					</td>
+				</tr>
+				<tr>
+					<td>今日天数</td>
+					<td>所选季节的当前日期。该值从前面的<em> 当季天数</em>中减去，以计算作物有多少天时间生长。如果在<em> 季节</em></td>下选择了<em> 温室 </em>，则隐藏此选项。
+					</td>
+				</tr>
+				<tr>
+					<td>生产类型</td>
+					<td>指定收获后要出售的产品类型。默认情况下，所有作物都是作为原料收割和出售的。这个选项涉及普通/白银/黄金比例，<em> 耕种
+						</em>水平和一些额外技能。其他选项允许您选择两种不同的工匠商品。
+					</td>
+				</tr>
+				<tr>
+					<td>作物数量</td>
+					<td>控制玩家种植的作物数量。</td>
+				</tr>
+				<tr>
+					<td>用于本次采购的最大金额</td>
+					<td>玩家用于本次采购的最大金额。这将限制购买种子时可以种植的作物数量。</td>
+				</tr>
+				<tr>
+					<td>平均利润</td>
+					<td>勾选这个选项，只计算平均每天的利润。平均值通过之前设置的天数计算。</td>
+				</tr>
+				<tr>
+					<td>种子来源</td>
+					<td>种子可以在不同的地点获得，不同地点对应的种子的成本也是不同。此选项允许您控制图表应该寻找哪些来源。请注意，最便宜的选项将始终显示在图表上。取消选择某些地点可能会使您错过某些作物。</td>
+				</tr>
+				<tr>
+					<td>是否减去种子花销</td>
+					<td>选择这一选项意味着玩家将从其中一个来源购买种子，而不是自己生产种子(如使用<em> 种子生成器 </em>)。每个作物将显示一个橙色条，如果勾选，则显示种子损失。</td>
+				</tr>
+				<tr>
+					<td>肥料</td>
+					<td>不同的肥料可以加速生长或提高正常/银/金比率。此处可选择肥料类型</td>
+				</tr>
+				<tr>
+					<td>是否减去肥料花销</td>
+					<td>选择这一选项意味着玩家将从其中一个来源购买肥料，而不是自己生产肥料(如<em> 制作 </em>)。每一种作物将显示一个棕色的条形图，显示选择后的肥料损失。</td>
+				</tr>
+				<tr>
+					<td>生长激素来源</td>
+					<td>桑迪在绿洲卖的高级生长激素比皮埃尔卖的便宜。此选项允许选择所使用的价格。此选项被禁用， 除非选择了"减去肥料花销"并选择了高级生长激素。</td>
+				</tr>
+				<tr>
+					<td>耕种等级</td>
+					<td>玩家的<em> 耕种 </em>技能等级。这对农作物的普通/银/金比率有直接影响，但不会影响工匠物品。</td>
+				</tr>
+				<tr>
+					<td>耕种等级5级能力</td>
+					<td>当玩家在<em> 耕作 </em>中达到5级时，<em> 农场主 </em>技能就可用了。除非设置了正确的级别，否则该选项将被禁用。</td>
+				</tr>
+				<tr>
+					<td>耕种等级10级能力</td>
+					<td>当玩家在<em> 耕种 </em>中达到10级时可获得的特定技能。该选项将被禁用，除非设置了正确的级别，并且<em> 农场主 </em>在5级技能下启用。</td>
+				</tr>
+				<tr>
+					<td>觅食等级</td>
+					<td>玩家的<em> 觅食 </em>技能等级。这对采集物品的正常/银/金的比例有直接影响，但不会影响工匠物品。</td>
+				</tr>
+				<tr>
+					<td>觅食等级5级</td>
+					<td>当玩家在<em> 觅食</em>中达到5级时，<em> 收集者 </em>技能就可用了。除非设置了正确的级别，否则该选项将被禁用。</td>
+				</tr>
+				<tr>
+					<td>觅食等级10级</td>
+					<td>一旦玩家在<em> 觅食 </em>技能达到10级，就可以使用<em> 植物学家 </em>技能。该选项将被禁用，除非设置了正确的级别，并且<em> 收集者 </em>在5级技能下启用。
+					</td>
+				</tr>
+				<tr>
+					<td>显示额外信息</td>
+					<td>勾选这个选项将在工具提示中显示有关每种作物的额外详细信息。</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<h1>联系</h1>
+		<p>源代码可以在 <a href="x"
+				target="_blank">GitHub</a> 上找到
+			<br />Project source code is available on <a href="https://github.com/Thorinair/Stardew-Profits"
+				target="_blank">GitHub</a>.
+		</p>
+		<div id="divhelp"><a href="index.html">Back</a></div>
+	</div>
+
+	<div class="footer">
+		<p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.6.1</a> &copy; <a
+				href="https://twitter.com/ConcernedApe" target="_blank">ConcernedApe</a> | Website designed by <a
+				href="https://twitter.com/thorinair_music" target="_blank">Thorinair</a> | v1.4.3</p>
+	</div>
+
+	<script src="js/time.js"> </script>
+</body>
+
+</html>

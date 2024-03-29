@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="A Stardew Valley crop profits calculator and visualizer." />
+	<title>Stardew Profits</title>
+	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="style/style.css" />
+	<link rel="shortcut icon" type="image/png" href="img/ancientfruit.png">
+</head>
+
+<body>
+
+	<div class="title">
+	</div>
+
+	<script src="js/crops.js"> </script>
+	<script src="js/data.js"> </script>
+	<div class="graph">
+		<script src="js/main.js"> </script>
+	</div>
+
+	<div class="options">
+		<table cellspacing="2">
+
+			<tr>
+				<td>季节：</td>
+				<td>
+					<select id="select_season" onChange="rebuild()">
+						<option value="0" id="season_0" selected="true">春天</option>
+						<option value="1" id="season_1">夏天</option>
+						<option value="2" id="season_2">秋天</option>
+						<option value="3" id="season_3">冬天</option>
+						<option value="4" id="season_4">温室</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr id="cross_season_row">
+				<td>跨季节：</td>
+				<td><input type="checkbox" id="cross_season" onChange="refresh()" /></td>
+			</tr>
+
+			<tr id="number_days_row">
+				<td>当季天数：</td>
+				<td><input type="number" id="number_days" value="28" onChange="refresh()" /></td>
+			</tr>
+
+			<tr id="current_day_row">
+				<td>今日天数：</td>
+				<td><input type="number" id="current_day" value="1" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>生产类型：</td>
+				<td>
+					<select id="select_produce" onChange="refresh()">
+						<option value="0" selected="true">未加工</option>
+						<option value="1">罐头制品</option>
+						<option value="2">酿造品</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>作物数量：</td>
+				<td><input type="number" id="number_planted" value="1" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>用于本次采购的最大金额：&nbsp;&nbsp;</td>
+				<td><input type="number" id="max_seed_money" value="0" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>平均利润：</td>
+				<td><input type="checkbox" id="check_average" onChange="refresh()" /></td>
+			</tr>
+
+		</table>
+
+		<table cellspacing="2">
+
+			<tr>
+				<td>种子来源：</td>
+				<td>
+					<input type="checkbox" id="check_seedsPierre" onChange="rebuild()" checked="true" /> <label
+						for="check_seedsPierre">皮埃尔</label><br />
+					<input type="checkbox" id="check_seedsJoja" onChange="rebuild()" checked="true" /> <label
+						for="check_seedsJoja">Joja</label><br />
+					<input type="checkbox" id="check_seedsSpecial" onChange="rebuild()" checked="true" /> <label
+						for="check_seedsSpecial">特殊</label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>是否减去种子花销：</td>
+				<td><input type="checkbox" id="check_buySeed" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td>肥料：</td>
+				<td>
+					<select id="select_fertilizer" onChange="refresh()">
+						<option value="0" selected="true">无</option>
+						<option value="1">初级肥料</option>
+						<option value="2">高级肥料</option>
+						<option value="5">顶级肥料</option>
+						<option value="3">生长激素</option>
+						<option value="4">高级生长激素</option>
+						<option value="6">顶级生长激素</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>是否减去肥料花销：</td>
+				<td><input type="checkbox" id="check_buyFert" onChange="refresh()" /></td>
+			</tr>
+			<tr id="deluxe_speed_input">
+				<td>生长激素来源：</td>
+				<td>
+					<select id="speed_gro_source" onChange="refresh()">
+						<option value="0" selected="true">皮埃尔</option>
+						<option value="1">桑迪</option>
+				</td>
+			</tr>
+		</table>
+
+		<table cellspacing="2">
+
+			<tr>
+				<td>耕种等级：</td>
+				<td><input type="number" id="farming_level" value="0" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="sub">
+					<table cellspacing="2" class="subt">
+						<tr>
+							<td>5级能力：</td>
+							<td><input type="checkbox" id="check_skillsTill" onChange="refresh()" /> 农场主<br /></td>
+						</tr>
+						<tr>
+							<td>10级能力：</td>
+							<td>
+								<select id="select_skills" onChange="refresh()">
+									<option value="0" selected="true">无</option>
+									<option value="1">农业学家</option>
+									<option value="2">制品生产家</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="sub">
+					<table class="subt">
+					</table>
+				</td>
+			</tr>
+
+			<tr>
+				<td>觅食等级：</td>
+				<td><input type="number" id="foraging_level" value="0" onChange="refresh()" /></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="sub">
+					<table cellspacing="2" class="subt">
+						<tr>
+							<td>5级能力：</td>
+							<td><input type="checkbox" id="check_skillsGatherer" onChange="refresh()" /> 收集者<br />
+							</td>
+						</tr>
+						<tr>
+							<td>10级能力：</td>
+							<td><input type="checkbox" id="check_skillsBotanist" onChange="refresh()" /> 植物学家<br />
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr>
+				<td>耕种增益食物：</td>
+				<td>
+					<select id="select_food" onChange="refresh()">
+						<option value="0" selected="true">无</option>
+						<option value="1">枫糖棒</option>
+						<option value="1">薯饼</option>
+						<option value="2">完美早餐</option>
+						<option value="2">爆炒青椒</option>
+						<option value="2">椰汁汤</option>
+						<option value="3">农夫午餐</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>显示额外信息：</td>
+				<td><input type="checkbox" id="check_extra" onChange="refresh()" checked="true" /></td>
+			</tr>
+
+			<tr>
+				<td id="tdhelp">
+					<div id="divhelp"><a href="help(zh).html">帮助</a></div>
+				</td>
+				<td id="tdhelp">
+					<div id="divhelp"><a href="#" id="reset">重置</a></div>
+				</td>
+			</tr>
+
+		</table>
+	</div>
+
+	<div class="footer">
+		<p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.5.4</a> &copy; <a
+				href="https://twitter.com/ConcernedApe" target="_blank">ConcernedApe</a> | Website designed by <a
+				href="https://twitter.com/thorinair_music" target="_blank">Thorinair</a> | v1.4.3</p>
+	</div>
+
+	<script src="js/time.js"> </script>
+</body>
+
+</html>
