@@ -153,7 +153,7 @@ function harvests(cropID) {
  * 计算一包种子的最低成本。
  * @param crop 包含所有作物数据的作物对象。
  * @return 一包种子的最低成本，考虑了选项。
- */
+ */66
 function minSeedCost(crop) {
 	var minSeedCost = Infinity;
 	//如果皮埃尔卖这个种子，而且你也选了在皮埃尔买种子这个选项，并且种子价格低于当前规定的最低价格，则更新最低价格
