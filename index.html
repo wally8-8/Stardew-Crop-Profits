@@ -15,6 +15,16 @@
 	<div class="title">
 	</div>
 
+	</div>
+	<script src="js/language.js"> </script>
+	<div id="languageOptions" style="position: absolute; top: 0; right: 0;">
+		<label for="languageSelect">language</label>
+		<select id="languageSelect" onchange="home_changeLanguage()">
+			<option value="cn">中文</option>
+			<option value="en">English</option>
+		</select>
+	</div>
+
 	<script src="js/crops.js"> </script>
 	<script src="js/data.js"> </script>
 	<div class="graph">
@@ -69,7 +79,7 @@
 			</tr>
 
 			<tr>
-				<td>用于本次采购的最大金额：&nbsp;&nbsp;</td>
+				<td>本次采购的最大金额：&nbsp;&nbsp;</td>
 				<td><input type="number" id="max_seed_money" value="0" onChange="refresh()" /></td>
 			</tr>
 
