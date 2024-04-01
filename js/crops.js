@@ -6,6 +6,7 @@
 var crops = {
   "amaranth": {
     "name": "苋菜",
+    "enname":"Amaranth",
     "url": "http://stardewvalleywiki.com/Amaranth",
     "img": "amaranth.png",
     "seeds": {
@@ -29,6 +30,7 @@ var crops = {
   },
   "grape": {
     "name": "葡萄",
+    "enname":"Grape",
     "url": "http://stardewvalleywiki.com/Grape",
     "img": "grape.png",
     "seeds": {
@@ -52,6 +54,7 @@ var crops = {
   },
   "hops": {
     "name": "啤酒花",
+    "enname":"Hops",
     "url": "http://stardewvalleywiki.com/Hops",
     "img": "hops.png",
     "seeds": {
@@ -76,6 +79,7 @@ var crops = {
   },
   "pineapple": {
     "name": "菠萝",
+    "enname":"Pineapple",
     "url": "http://stardewvalleywiki.com/Pineapple",
     "img": "pineapple.png",
     "seeds": {
@@ -99,6 +103,7 @@ var crops = {
   },
   "sweetgemberry": {
     "name": "宝石甜莓",
+    "enname":"Sweet Gem Berry",
     "url": "http://stardewvalleywiki.com/Sweet_Gem_Berry",
     "img": "sweetgemberry.png",
     "seeds": {
@@ -120,6 +125,7 @@ var crops = {
   },
   "tealeaves": {
     "name": "茶叶",
+    "enname":"Tea Leaves",
     "url": "http://stardewvalleywiki.com/Tea_Leaves",
     "img": "tealeaves.png",
     "seeds": {
@@ -144,6 +150,7 @@ var crops = {
   },
   "fairyrose": {
     "name": "玫瑰仙子",
+    "enname":"Fairy Rose",
     "url": "http://stardewvalleywiki.com/Fairy_Rose",
     "img": "fairyrose.png",
     "seeds": {
@@ -165,6 +172,7 @@ var crops = {
   },
   "tulip": {
     "name": "郁金香",
+    "enname":"Tulip",
     "url": "http://stardewvalleywiki.com/Tulip",
     "img": "tulip.png",
     "seeds": {
@@ -186,6 +194,7 @@ var crops = {
   },
   "bluejazz": {
     "name": "蓝爵士",
+    "enname":"Blue Jazz",
     "url": "http://stardewvalleywiki.com/Blue_Jazz",
     "img": "bluejazz.png",
     "seeds": {
@@ -207,6 +216,7 @@ var crops = {
   },
   "sunflower": {
     "name": "向日葵",
+    "enname":"Sunflower",
     "url": "http://stardewvalleywiki.com/Sunflower",
     "img": "sunflower.png",
     "seeds": {
@@ -228,6 +238,7 @@ var crops = {
   },
   "coffeebean": {
     "name": "咖啡豆",
+    "enname":"Coffee Bean",
     "url": "http://stardewvalleywiki.com/Coffee_Bean",
     "img": "coffeebean.png",
     "seeds": {
@@ -251,6 +262,7 @@ var crops = {
   },
   "poppy": {
     "name": "虞美人",
+    "enname":"Poppy",
     "url": "http://stardewvalleywiki.com/Poppy",
     "img": "poppy.png",
     "seeds": {
@@ -272,6 +284,7 @@ var crops = {
   },
   "summerspangle": {
     "name": "夏季亮片",
+    "enname":"Summer Spangle",
     "url": "http://stardewvalleywiki.com/Summer_Spangle",
     "img": "summerspangle.png",
     "seeds": {
@@ -293,6 +306,7 @@ var crops = {
   },
   "parsnip": {
     "name": "防风草",
+    "enname":"Parsnip",
     "url": "http://stardewvalleywiki.com/Parsnip",
     "img": "parsnip.png",
     "seeds": {
@@ -316,6 +330,7 @@ var crops = {
   },
   "greenbean": {
     "name": "青豆",
+    "enname":"Green Bean",
     "url": "http://stardewvalleywiki.com/Green_Bean",
     "img": "greenbean.png",
     "seeds": {
@@ -339,6 +354,7 @@ var crops = {
   },
   "cauliflower": {
     "name": "花椰菜",
+    "enname":"Cauliflower",
     "url": "http://stardewvalleywiki.com/Cauliflower",
     "img": "cauliflower.png",
     "seeds": {
@@ -362,6 +378,7 @@ var crops = {
   },
   "potato": {
     "name": "土豆",
+    "enname":"Potato",
     "url": "http://stardewvalleywiki.com/Potato",
     "img": "potato.png",
     "seeds": {
@@ -385,6 +402,7 @@ var crops = {
   },
   "garlic": {
     "name": "大蒜",
+    "enname":"Garlic",
     "url": "http://stardewvalleywiki.com/Garlic",
     "img": "garlic.png",
     "seeds": {
@@ -408,6 +426,7 @@ var crops = {
   },
   "taroroot": {
     "name": "芋头",
+    "enname":"Taro Root",
     "url": "http://stardewvalleywiki.com/Taro_Root",
     "img": "taroroot.png",
     "seeds": {
@@ -431,6 +450,7 @@ var crops = {
   },
   "kale": {
     "name": "甘蓝",
+    "enname":"Kale",
     "url": "http://stardewvalleywiki.com/Kale",
     "img": "kale.png",
     "seeds": {
@@ -454,6 +474,7 @@ var crops = {
   },
   "unmilledrice": {
     "name": "未碾米",
+    "enname":"Unmilled Rice",
     "url": "http://stardewvalleywiki.com/Unmilled_Rice",
     "img": "unmilledrice.png",
     "seeds": {
@@ -477,6 +498,7 @@ var crops = {
   },
   "rhubarb": {
     "name": "大黄",
+    "enname":"Rhubarb",
     "url": "http://stardewvalleywiki.com/Rhubarb",
     "img": "rhubarb.png",
     "seeds": {
@@ -500,6 +522,7 @@ var crops = {
   },
   "melon": {
     "name": "甜瓜",
+    "enname":"Melon",
     "url": "http://stardewvalleywiki.com/Melon",
     "img": "melon.png",
     "seeds": {
@@ -523,6 +546,7 @@ var crops = {
   },
   "tomato": {
     "name": "西红柿",
+    "enname":"Tomato",
     "url": "http://stardewvalleywiki.com/Tomato",
     "img": "tomato.png",
     "seeds": {
@@ -546,6 +570,7 @@ var crops = {
   },
   "blueberry": {
     "name": "蓝莓",
+    "enname":"Blueberry",
     "url": "http://stardewvalleywiki.com/Blueberry",
     "img": "blueberry.png",
     "seeds": {
@@ -569,6 +594,7 @@ var crops = {
   },
   "hotpepper": {
     "name": "辣椒",
+    "enname":"Hot Pepper",
     "url": "http://stardewvalleywiki.com/Hot_Pepper",
     "img": "hotpepper.png",
     "seeds": {
@@ -592,6 +618,7 @@ var crops = {
   },
   "wheat": {
     "name": "小麦",
+    "enname":"Wheat",
     "url": "http://stardewvalleywiki.com/Wheat",
     "img": "wheat.png",
     "seeds": {
@@ -616,6 +643,7 @@ var crops = {
   },
   "radish": {
     "name": "萝卜",
+    "enname":"Radish",
     "url": "http://stardewvalleywiki.com/Radish",
     "img": "radish.png",
     "seeds": {
@@ -639,6 +667,7 @@ var crops = {
   },
   "redcabbage": {
     "name": "红叶卷心菜",
+    "enname":"Red Cabbage",
     "url": "http://stardewvalleywiki.com/Red_Cabbage",
     "img": "redcabbage.png",
     "seeds": {
@@ -662,6 +691,7 @@ var crops = {
   },
   "starfruit": {
     "name": "杨桃",
+    "enname":"Starfruit",
     "url": "http://stardewvalleywiki.com/Starfruit",
     "img": "starfruit.png",
     "seeds": {
@@ -685,6 +715,7 @@ var crops = {
   },
   "corn": {
     "name": "玉米",
+    "enname":"Corn",
     "url": "http://stardewvalleywiki.com/Corn",
     "img": "corn.png",
     "seeds": {
@@ -708,6 +739,7 @@ var crops = {
   },
   "eggplant": {
     "name": "茄子",
+    "enname":"Eggplant",
     "url": "http://stardewvalleywiki.com/Eggplant",
     "img": "eggplant.png",
     "seeds": {
@@ -731,6 +763,7 @@ var crops = {
   },
   "artichoke": {
     "name": "洋蓟",
+    "enname":"Artichoke",
     "url": "http://stardewvalleywiki.com/Artichoke",
     "img": "artichoke.png",
     "seeds": {
@@ -754,6 +787,7 @@ var crops = {
   },
   "pumpkin": {
     "name": "南瓜",
+    "enname":"Pumpkin",
     "url": "http://stardewvalleywiki.com/Pumpkin",
     "img": "pumpkin.png",
     "seeds": {
@@ -777,6 +811,7 @@ var crops = {
   },
   "bokchoy": {
     "name": "小白菜",
+    "enname":"Bok Choy",
     "url": "http://stardewvalleywiki.com/Bok_Choy",
     "img": "bokchoy.png",
     "seeds": {
@@ -800,6 +835,7 @@ var crops = {
   },
   "yam": {
     "name": "山药",
+    "enname":"Yam",
     "url": "http://stardewvalleywiki.com/Yam",
     "img": "yam.png",
     "seeds": {
@@ -823,6 +859,7 @@ var crops = {
   },
   "cranberries": {
     "name": "蔓越莓",
+    "enname":"Cranberries",
     "url": "http://stardewvalleywiki.com/Cranberries",
     "img": "cranberries.png",
     "seeds": {
@@ -846,6 +883,7 @@ var crops = {
   },
   "beet": {
     "name": "甜菜",
+    "enname":"Beet",
     "url": "http://stardewvalleywiki.com/Beet",
     "img": "beet.png",
     "seeds": {
@@ -869,6 +907,7 @@ var crops = {
   },
   "ancientfruit": {
     "name": "上古水果",
+    "enname":"Ancient Fruit",
     "url": "http://stardewvalleywiki.com/Ancient_Fruit",
     "img": "ancientfruit.png",
     "seeds": {
@@ -892,6 +931,7 @@ var crops = {
   },
   "cactusfruit": {
     "name": "仙人掌果子",
+    "enname":"Cactus Fruit",
     "url": "http://stardewvalleywiki.com/Cactus_Fruit",
     "img": "cactusfruit.png",
     "seeds": {
@@ -915,6 +955,7 @@ var crops = {
   },
   "strawberry": {
     "name": "草莓",
+    "enname":"Strawberry",
     "url": "http://stardewvalleywiki.com/Strawberry",
     "img": "strawberry.png",
     "seeds": {
@@ -938,6 +979,7 @@ var crops = {
   },
   "springseeds": {
     "name": "春季种子",
+    "enname":"Spring Seeds",
     "url": "http://stardewvalleywiki.com/Spring_Seeds",
     "img": "springseeds.png",
     "seeds": {
@@ -961,6 +1003,7 @@ var crops = {
   },
   "summerseeds": {
     "name": "夏季种子",
+    "enname":"Summer Seeds",
     "url": "http://stardewvalleywiki.com/Summer_Seeds",
     "img": "summerseeds.png",
     "seeds": {
@@ -986,6 +1029,7 @@ var crops = {
   },
   "fallseeds": {
     "name": "秋季种子",
+    "enname":"Fall Seeds",
     "url": "http://stardewvalleywiki.com/Fall_Seeds",
     "img": "fallseeds.png",
     "seeds": {
@@ -1011,6 +1055,7 @@ var crops = {
   },
   "winterseeds": {
     "name": "冬季种子",
+    "enname":"Winter Seeds",
     "url": "http://stardewvalleywiki.com/Winter_Seeds",
     "img": "winterseeds.png",
     "seeds": {
