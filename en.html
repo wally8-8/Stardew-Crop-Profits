@@ -18,15 +18,18 @@
 		<div id="languageOptions" style="position: absolute; top: 0; right: 0;">
 			<label for="languageSelect">language</label>
 			<select id="languageSelect" onchange="home_changeLanguage()">
-				<option value="en">English</option>
 				<option value="cn">中文</option>
+				<option value="en" selected>English</option>
 			</select>
+			<script>
+				language = document.getElementById("languageSelect").value;
+			</script>
 		</div>
 
 		<script src="js/crops.js"> </script>
 		<script src="js/data.js"> </script>
 		<div class="graph">
-			<script src="js/main for en.js"> </script>
+			<script src="js/main.js"> </script>
 		</div>
 
 		<div class="options">
