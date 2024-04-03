@@ -200,7 +200,7 @@ function planted(crop) {
 function levelRatio(fertilizer, level, isWildseed) {
 	var ratio = {};
 
-	if (isWildseed) {
+	if (isWildseed) {//isWildseed，判断是否是野生种子（不是作物）
 		// 如果选择了植物学家，则所有野生作物均为铱色
 		if (options.skills.botanist)
 			ratio.ratioI = 1;
@@ -214,14 +214,18 @@ function levelRatio(fertilizer, level, isWildseed) {
 		ratio.ratioN = 1 - ratio.ratioS - ratio.ratioG - ratio.ratioI;
 	}
 	else {
-		// 豪华肥料提供的靛色作物比例为金色比例的一半
-		ratio.ratioI = fertilizer >= 3 ? (0.2 * (level / 10.0) + 0.2 * fertilizer * ((level + 2) / 12.0) + 0.01) / 2 : 0;
-		// 计算金色乘以不是靛色的概率
+		// 顶级肥料提供的靛色作物比例为金色比例的一半
+		ratio.ratioI = (0.2 * (level / 10.0) + 0.2 * fertilizer * ((level + 2) / 12.0) + 0.01) / 2;
+		// 金色品质乘以不是靛色的概率
 		ratio.ratioG = (0.2 * (level / 10.0) + 0.2 * fertilizer * ((level + 2) / 12.0) + 0.01) * (1.0 - ratio.ratioI);
-		// 银色概率上限为0.75，乘以不是金色/靛色的概率
+		// 银色品质概率上限为0.75，乘以不是金色/靛色的概率
 		ratio.ratioS = Math.max(0, Math.min(0.75, ratio.ratioG * 2.0) * (1.0 - ratio.ratioG - ratio.ratioI));
-		// 不是其他评级的概率
+		//普通品质的概率
 		ratio.ratioN = Math.max(0, 1.0 - ratio.ratioS - ratio.ratioG - ratio.ratioI);
+		if (fertilizer == 3) {
+			ratio.ratioS += ratio.ratioN;
+			ratio.ratioN = 0;
+		}
 	}
 	return ratio;
 }

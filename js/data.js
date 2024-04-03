@@ -42,32 +42,32 @@ var fertilizers = [
 		"cost": 100 // 费用
 	},
 	{
-		"name": "Quality Fertilizer", // 优质肥料
+		"name": "Quality Fertilizer", // 高级肥料
 		"ratio": 2, // 比例
 		"growth": 1, // 生长速度
 		"cost": 150 // 费用
 	},
 	{
-		"name": "Deluxe Fertilizer", // 豪华肥料
+		"name": "Deluxe Fertilizer", // 顶级肥料
 		"ratio": 3, // 比例
 		"growth": 1, // 生长速度
 		"cost": 0 // 费用
 	},
 	{
-		"name": "Speed-Gro", // 速度生长剂
+		"name": "Speed-Gro", // 生长激素
 		"ratio": 0, // 比例
 		"growth": 0.9, // 生长速度
 		"cost": 100 // 费用
 	},
 	{
-		"name": "Deluxe Speed-Gro", // 豪华速度生长剂
+		"name": "Deluxe Speed-Gro", // 高级生长激素
 		"ratio": 0, // 比例
 		"growth": 0.75, // 生长速度
 		"cost": 150, // 费用
 		"alternate_cost": 80 // 备选费用
 	},
 	{
-		"name": "Hyper Speed-Gro", // 超级速度生长剂
+		"name": "Hyper Speed-Gro", // 顶级生长激素
 		"ratio": 0, // 比例
 		"growth": 0.67, // 生长速度
 		"cost": 0 // 费用
