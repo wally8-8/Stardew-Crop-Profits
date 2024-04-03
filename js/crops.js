@@ -4,6 +4,106 @@
 
 // // 作物列表
 var crops = {
+  "carrot": {
+    "name": "胡萝卜",
+    "en_name": "Carrot",
+    "url": "http://stardewvalleywiki.com/Carrot",
+    "img": "carrot.png",
+    "seeds": {
+      "sell":0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0.001,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardewvalleywiki.com/Carrot_Seeds"
+    },
+    "growth": {
+      "initial": 3,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "泡菜",
+      "kegType": "果汁"
+    }
+  },
+  "summersquash": {
+    "name": "金皮西葫芦",
+    "en_name":"Summer Squash",
+    "url": "https://stardewvalleywiki.com/Summer_Squash",
+    "img": "summersquash.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0.001,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 45,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    }
+  },
+  "broccoli": {
+    "name": "西兰花",
+    "en_name":"Broccoli",
+    "url": "https://stardewvalleywiki.com/Broccoli",
+    "img": "broccoli.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0.001,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 70,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    }
+  },
+  "powdermelon": {
+    "name": "霜瓜",
+    "en_name":"Powdermelon",
+    "url": "https://stardewvalleywiki.com/Powdermelon",
+    "img": "powdermelon.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0.001,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 70,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+    }
+  },
   "amaranth": {
     "name": "苋菜",
     "en_name":"Amaranth",

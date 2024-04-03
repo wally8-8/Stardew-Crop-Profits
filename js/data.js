@@ -81,6 +81,7 @@ var seasons = [
 		"name": "Spring",
 		"duration": 28,
 		"crops": [
+			crops.carrot,//胡萝卜
 			crops.coffeebean, // 咖啡豆
 			crops.strawberry, // 草莓
 			crops.rhubarb, // 大黄
@@ -102,6 +103,7 @@ var seasons = [
 		"name": "Summer",
 		"duration": 28,
 		"crops": [
+			crops.summersquash,//金皮西葫芦
 			crops.pineapple, // 菠萝
 			crops.blueberry, // 蓝莓
 			crops.starfruit, // 杨桃
@@ -127,6 +129,7 @@ var seasons = [
 		"name": "Fall",
 		"duration": 28,
 		"crops": [
+			crops.broccoli, // 西兰花
 			crops.sweetgemberry, // 甜宝石莓
 			crops.cranberries, // 蔓越莓
 			crops.pumpkin, // 南瓜
@@ -150,6 +153,7 @@ var seasons = [
 		"name": "Winter",
 		"duration": 28,
 		"crops": [
+			crops.powdermelon,//霜瓜
 			crops.winterseeds // 冬季种子
 		]
 	},
@@ -197,7 +201,11 @@ var seasons = [
 			crops.sunflower, // 向日葵
 			crops.ancientfruit, // 上古种子
 			crops.cactusfruit, // 仙人掌果实
-			crops.taroroot // 芋头
+			crops.taroroot, // 芋头
+			crops.carrot,//胡萝卜
+			crops.summersquash,//金皮西葫芦
+			crops.broccoli,// 西兰花
+			crops.powdermelon//霜瓜
 		]
 	}
 ];

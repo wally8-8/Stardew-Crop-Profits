@@ -9,8 +9,8 @@ var height = (svgHeight - 56) / 2; // 实际绘图高度
 var barPadding = 4; // 柱状图间距
 var barWidth = width / seasons[options.season].crops.length - barPadding; // 柱状图宽度
 var miniBar = 8; // 迷你柱状图大小
-var barOffsetX = 56; // X轴偏移量
-var barOffsetY = 40; // Y轴偏移量
+var barOffsetX = 30; // X轴偏移量
+var barOffsetY = 50; // Y轴偏移量
 
 // 准备Web元素。
 var svg = d3.select("div.graph")
@@ -1037,16 +1037,16 @@ function updateGraph() {
 
 function updateSeasonNames() {
 	if (options.crossSeason) {
-		document.getElementById('season_0').innerHTML = "春天 & 夏天";
-		document.getElementById('season_1').innerHTML = "夏天 & 秋天";
-		document.getElementById('season_2').innerHTML = "秋天 & 冬天";
-		document.getElementById('season_3').innerHTML = "冬天 & 春天";
+		document.getElementById('season_0').innerHTML = language == "cn"?"春天 & 夏天":"Spring & Summer";
+		document.getElementById('season_1').innerHTML = language == "cn"?"夏天 & 秋天":"Summer & Fall";
+		document.getElementById('season_2').innerHTML = language == "cn"?"秋天 & 冬天":"Fall & Winter";
+		document.getElementById('season_3').innerHTML = language == "cn"?"冬天 & 春天":"Winter & Spring";
 	}
 	else {
-		document.getElementById('season_0').innerHTML = "春天";
-		document.getElementById('season_1').innerHTML = "夏天";
-		document.getElementById('season_2').innerHTML = "秋天";
-		document.getElementById('season_3').innerHTML = "冬天";
+		document.getElementById('season_0').innerHTML = language == "cn"?"春天":"Spring";
+		document.getElementById('season_1').innerHTML = language == "cn"?"夏天":"Summer";
+		document.getElementById('season_2').innerHTML = language == "cn"?"秋天":"Fall";
+		document.getElementById('season_3').innerHTML = language == "cn"?"冬天":"Winter";
 	}
 }
 
