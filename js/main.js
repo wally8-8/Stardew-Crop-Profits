@@ -215,7 +215,7 @@ function levelRatio(fertilizer, level, isWildseed) {
 	}
 	else {
 		// 顶级肥料提供的靛色作物比例为金色比例的一半
-		ratio.ratioI = (0.2 * (level / 10.0) + 0.2 * fertilizer * ((level + 2) / 12.0) + 0.01) / 2;
+		ratio.ratioI = fertilizer >= 3 ? (0.2 * (level / 10.0) + 0.2 * fertilizer * ((level + 2) / 12.0) + 0.01) / 2 : 0;
 		// 金色品质乘以不是靛色的概率
 		ratio.ratioG = (0.2 * (level / 10.0) + 0.2 * fertilizer * ((level + 2) / 12.0) + 0.01) * (1.0 - ratio.ratioI);
 		// 银色品质概率上限为0.75，乘以不是金色/靛色的概率
@@ -231,102 +231,234 @@ function levelRatio(fertilizer, level, isWildseed) {
 }
 
 /*
+ * 计算作物的酒桶修正系数。
+ * @param crop 包含所有作物数据的作物对象。
+ * @return 酒桶修正系数。
+ */
+function getKegModifier(crop) {
+	return crop.produce.kegType == "Wine" ? 3 : 2.25;
+}
+
+/*
+ * 计算作物的木桶修正系数。
+ * @param crop 包含所有作物数据的作物对象。
+ * @return 木桶修正系数。
+ */
+function getCaskModifier() {
+	switch (options.aging) {
+		case 1: return 1.25;
+		case 2: return 1.5;
+		case 3: return 2;
+		default: return 1;
+	}
+}
+
+
+/*
  * 计算指定作物的利润。
  * @param crop 包含所有作物数据的作物对象。
  * @return 总利润。
  */
 function profit(crop) {
-	// 获取种植的数量
 	var num_planted = planted(crop);
-	// 计算总收成
-	var total_harvests = crop.harvests * num_planted;
-	// 获取肥料类型
+	// 计算种植的作物数量
+	// var total_harvests = crop.harvests * num_planted;
 	var fertilizer = fertilizers[options.fertilizer];
-	// 获取产品类型
+	// 获取肥料信息
 	var produce = options.produce;
+	// 获取生产方式
 
 	var useLevel = options.level;
-	// 如果作物是野种子，则使用采集等级
+	// 使用的农业技能等级
 	if (crop.isWildseed)
 		useLevel = options.foragingLevel;
+	// 如果是野生种子，使用采集技能等级
 
-	// 根据肥料比例和等级计算营养元素分配比例
 	var { ratioN, ratioS, ratioG, ratioI } = levelRatio(fertilizer.ratio, useLevel + options.foodLevel, crop.isWildseed);
+	// 根据农业技能等级计算比例
 
-	// 如果作物是茶叶，则重置银、金、铱的比例
 	if (crop.name == "Tea Leaves") ratioN = 1, ratioS = ratioG = ratioI = 0;
-	var profit = 0;
+	// 如果是茶叶，使用特殊比例
 
-	//跳过不合格作物的酒桶/罐计算（其中 corp.produce.jar 或 crop.produce.keg = 0）
+	var netIncome = 0;
+	// 净收入
+	var netExpenses = 0;
+	// 净支出
+	var totalProfit = 0;
+	// 总利润
+	var totalReturnOnInvestment = 0;
+	// 总投资回报率
+	var averageReturnOnInvestment = 0;
+	// 平均投资回报率
 
-
+	// 跳过不适合酒桶/罐子的作物的计算 (其中corp.produce.jar或crop.produce.keg = 0)
 
 	var userawproduce = false;
+	// 使用原始产物（未经加工）
 
 	switch (produce) {
-		case 0: userawproduce = true; break;
 		case 1:
-			if (crop.produce.jarType == null) userawproduce = true;  // 如果果实的罐头类型为空，则选择原材料
+			if (crop.produce.jarType == null) userawproduce = true;
 			break;
 		case 2:
-			if (crop.produce.kegType == null) userawproduce = true;  // 如果果实的酒桶类型为空，则选择原材料
+			if (crop.produce.kegType == null) userawproduce = true;
 			break;
 	}
 
 	// console.log("Calculating raw produce value for: " + crop.name);
-
+	
+	// 确定收入
+	// 如果是使用原始产物或者需要使用原始产物
 	if (produce == 0 || userawproduce) {
-		profit += crop.produce.price * ratioN * total_harvests;  // 根据不同比例计算利润
-		profit += Math.trunc(crop.produce.price * 1.25) * ratioS * total_harvests;  // 根据不同比例计算利润
-		profit += Math.trunc(crop.produce.price * 1.5) * ratioG * total_harvests;  // 根据不同比例计算利润
-		profit += crop.produce.price * 2 * ratioI * total_harvests;  // 根据不同比例计算利润
-		// console.log("Profit (After normal produce): " + profit);
-
-		if (crop.produce.extra > 0) {
-			profit += crop.produce.price * crop.produce.extraPerc * crop.produce.extra * total_harvests;  // 如果额外产量大于0，则计算额外利润
-			// console.log("Profit (After extra produce): " + profit);
+		// 如果使用原始产物并且不出售原始产物，净收入为0
+		if (userawproduce && !options.sellRaw) {
+			netIncome = 0;
 		}
+		else {
+			// 总作物数量
+			var total_crops = num_planted * 1.0 + num_planted * crop.produce.extraPerc * crop.produce.extra;
+			var countN = total_crops * ratioN;
+			var countS = total_crops * ratioS;
+			var countG = total_crops * ratioG;
+			var countI = total_crops * ratioI;
+			// 如果需要重新种植并且作物不会再生长
+			if (options.replant && crop.growth.regrow == 0) {
+				var forSeeds = total_crops * 0.5;
+				if (countN - forSeeds < 0) {
+					forSeeds -= countN;
+					countN = 0;
+				}
+				else {
+					countN -= forSeeds;
+					forSeeds = 0;
+				}
+				if (countS - forSeeds < 0) {
+					forSeeds -= countS;
+					countS = 0;
+				}
+				else {
+					countS -= forSeeds;
+					forSeeds = 0;
+				}
+				if (countG - forSeeds < 0) {
+					forSeeds -= countG;
+					countG = 0;
+				}
+				else {
+					countG -= forSeeds;
+					forSeeds = 0;
+				}
+				if (countI - forSeeds < 0) {
+					forSeeds -= countI;
+					countI = 0;
+				}
+				else {
+					countI -= forSeeds;
+					forSeeds = 0;
+				}
+			}
+			// 根据比例计算各种原料数量
+			netIncome += crop.produce.price * countN;
+			netIncome += Math.trunc(crop.produce.price * 1.25) * countS;
+			netIncome += Math.trunc(crop.produce.price * 1.5) * countG;
+			netIncome += crop.produce.price * 2 * countI;
+			// 根据作物收获次数计算净收入
+			netIncome *= crop.harvests;
 
-		if (options.skills.till) {
-			profit *= 1.1;  // 如果拥有耕种-农场主技能，则计算利润加成
-			// console.log("Profit (After skills): " + profit);
+			/*
+			netIncome += crop.produce.price * ratioN * total_harvests;
+			netIncome += Math.trunc(crop.produce.price * 1.25) * ratioS * total_harvests;
+			netIncome += Math.trunc(crop.produce.price * 1.5) * ratioG * total_harvests;
+			netIncome += crop.produce.price * 2 * ratioI * total_harvests;
+			// console.log("Profit (After normal produce): " + profit);
+
+			if (crop.produce.extra > 0) {
+				netIncome += crop.produce.price * crop.produce.extraPerc * crop.produce.extra * total_harvests;
+				// console.log("Profit (After extra produce): " + profit);
+			}
+			*/
+			// 如果有耕作技能,净收入乘以1.1
+			if (options.skills.till) {
+				netIncome *= 1.1;
+				// console.log("Profit (After skills): " + profit);
+			}
+		}
+	}
+		// 如果是果蔬作物
+	else if (produce == 3) {
+		// 计算总作物数量
+		var total_crops = num_planted * 1.0 + num_planted * crop.produce.extraPerc * crop.produce.extra;
+		// 如果需要重新种植并且作物不会再生长，则总作物数量减半
+		if (options.replant && crop.growth.regrow == 0)
+			total_crops *= 0.5;
+		// 净收入增加2倍总作物数量乘以收割次数乘以每种子的出售价值
+		netIncome += 2 * total_crops * crop.harvests * crop.seeds.sell;
+	}
+	else {
+		// 计算总作物数量
+		var total_crops = num_planted * 1.0 + num_planted * crop.produce.extraPerc * crop.produce.extra;
+		// 如果需要重新种植并且作物不会再生长，则总作物数量减半
+		if (options.replant && crop.growth.regrow == 0)
+			total_crops *= 0.5;
+
+		var kegModifier = getKegModifier(crop);
+		var caskModifier = getCaskModifier();
+		// 如果有酿造设备且生产类型为蔬菜或水果
+		if (options.equipment > 0 && (options.produce == 1 || options.produce == 2)) {
+			var items = Math.min(options.equipment, total_crops);
+			// 净收入增加酿造设备处理的作物数量乘以收割次数乘以每个单位的价格（如果有酿造设备）
+			netIncome += items * crop.harvests * (crop.produce.keg != null ? crop.produce.keg * caskModifier : crop.produce.price * kegModifier * caskModifier);
+		}
+		else {
+			// 净收入增加总作物数量乘以收割次数乘以每个单位的价格（如果有酿造设备）
+			netIncome += total_crops * crop.harvests * (crop.produce.keg != null ? crop.produce.keg * caskModifier : crop.produce.price * kegModifier * caskModifier);
+		}
+		// 如果有制品生产家技能
+		if (options.skills.arti) {
+			netIncome *= 1.4;
+		}
+	}
+
+	// 确定费用
+	// 增加种子损失
+	if (options.buySeed) {
+		netExpenses += crop.seedLoss;
+	}
+
+	// 增加肥料损失
+	if (options.buyFert) {
+		netExpenses += crop.fertLoss;
+	}
+
+	// 确定总利润
+	totalProfit = netIncome + netExpenses;
+	if (netExpenses != 0) {
+		totalReturnOnInvestment = 100 * ((totalProfit) / -netExpenses); // 计算投资回报率并将其缩放到百分比增长
+		if (crop.growth.regrow == 0) {
+			averageReturnOnInvestment = (totalReturnOnInvestment / crop.growth.initial);
+		}
+		else {
+			averageReturnOnInvestment = (totalReturnOnInvestment / options.days);
 		}
 	}
 	else {
-		var items = total_harvests;
-		items += crop.produce.extraPerc * crop.produce.extra * total_harvests;  // 根据额外产量计算物品数量
-		var kegModifier = crop.produce.kegType === "Wine" ? 3 : 2.25;  // 根据酒桶类型选择利润倍数
-
-		switch (produce) {
-			case 1: profit += items * (crop.produce.price * 2 + 50); break;  // 根据不同情况计算利润
-			case 2: profit += items * (crop.produce.keg != null ? crop.produce.keg : crop.produce.price * kegModifier); break;  // 根据不同情况计算利润
-		}
-
-		if (options.skills.arti) {
-			profit *= 1.4;  // 如果拥有耕种-制品生产家技能，则计算利润加成
-		}
-	}
-
-
-	if (options.buySeed) {
-		profit += crop.seedLoss;
-		// 计算种子花费后的利润
-	}
-
-	if (options.buyFert) {
-		profit += crop.fertLoss;
-		// 计算施肥花费后的利润
+		totalReturnOnInvestment = 0;
+		averageReturnOnInvestment = 0;
 	}
 
 	profitData = {}
-	profitData.profit = profit;//利润
-	profitData.ratioN = ratioN;//无星
-	profitData.ratioS = ratioS;//银星
-	profitData.ratioG = ratioG;//金星
-	profitData.ratioI = ratioI;//铱星
+	profitData.totalReturnOnInvestment = totalReturnOnInvestment;
+	profitData.averageReturnOnInvestment = averageReturnOnInvestment;
+	profitData.netExpenses = netExpenses;
+	profitData.profit = totalProfit;
+	profitData.ratioN = ratioN;
+	profitData.ratioS = ratioS;
+	profitData.ratioG = ratioG;
+	profitData.ratioI = ratioI;
 
-	// 返回利润数据对象
+	// 返回利润数据
 	return profitData;
+
 }
 
 /*
@@ -339,7 +471,7 @@ function seedLoss(crop) {
 
 	var loss = -minSeedCost(crop);
 
-	if (crop.growth.regrow == 0 && harvests > 0)
+	if (crop.growth.regrow == 0 && harvests > 0 && !options.replant)
 		loss = loss * harvests;
 
 	return loss * planted(crop);
@@ -355,7 +487,7 @@ function seedLoss(crop) {
  */
 function fertLoss(crop) {
 	var loss;
-	if (options.fertilizer == 4 && options.fertilizerSource == 1)
+	if (options.fertilizer == 5 && options.fertilizerSource == 1)
 		loss = -fertilizers[options.fertilizer].alternate_cost;
 	else
 		loss = -fertilizers[options.fertilizer].cost;
@@ -382,7 +514,7 @@ function fetchCrops() {
 	for (var i = 0; i < season.crops.length; i++) {
 		if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
 			(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
-			(options.seeds.special && season.crops[i].seeds.special != 0)) {
+			(options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
 			cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
 			cropList[cropList.length - 1].id = i;
 		}
@@ -534,7 +666,7 @@ function renderGraph() {
 	var y = updateScaleY();
 	var ax = updateScaleAxis();
 
-	svg.attr("width", barOffsetX + barPadding * 2 + (barWidth + barPadding) * cropList.length);
+	svg.attr("width", barOffsetX + barPadding * 2 + (barWidth + barPadding) * cropList.length + 8);
 	d3.select(".graph").attr("width", barOffsetX + barPadding * 2 + (barWidth + barPadding) * cropList.length);
 
 	var yAxis = d3.svg.axis()
@@ -778,27 +910,39 @@ function renderGraph() {
 					.attr("class", "tooltipTable")
 					.attr("cellspacing", 0);
 
-				if (!(d.isWildseed && options.skills.botanist)) {
+				// 如果不是野生种子且没有植物学技能
+				if (!(d.isWildseed && options.skills.botanist) && !(fertilizers[options.fertilizer].ratio >= 3)) {
+					// 如果肥料比例大于等于3，则不显示普通价值信息
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text(language == "cn" ? "价值 (普通)：" : "Value (Normal):");
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.price)
 						.append("div").attr("class", "gold");
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.ratioN * 100).toFixed(0) + "%)");
 				}
+
+
+				// 如果不是茶叶
 				if (d.name != "Tea Leaves") {
+					// 如果不是野生种子且没有植物学技能
 					if (!(d.isWildseed && options.skills.botanist)) {
+						// 添加银星价值信息
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdLeft").text(language == "cn" ? "价值 (银星)：" : "Value (Silver):");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.trunc(d.produce.price * 1.25))
 							.append("div").attr("class", "gold");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.ratioS * 100).toFixed(0) + "%)");
+
+						// 添加金星价值信息
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdLeft").text(language == "cn" ? "价值 (金星)：" : "Value (Gold):");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.trunc(d.produce.price * 1.5))
 							.append("div").attr("class", "gold");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.ratioG * 100).toFixed(0) + "%)");
 					}
+
+					// 如果不是野生种子且使用了高级肥料或者有植物学技能
 					if ((!d.isWildseed && fertilizers[options.fertilizer].ratio >= 3) || (d.isWildseed && options.skills.botanist)) {
+						// 添加铱星价值信息
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdLeft").text(language == "cn" ? "价值 (铱星)：" : "Value (Iridium):");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.price * 2)
@@ -806,6 +950,7 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.ratioI * 100).toFixed(0) + "%)");
 					}
 				}
+
 				tooltipTr = tooltipTable.append("tr");
 				if (d.produce.jarType != null) {
 					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text(language == "cn" ? "价值 (" + d.produce.jarType + ")：" : "Value (" + d.produce.jarType + "):");
@@ -1041,16 +1186,16 @@ function updateGraph() {
 
 function updateSeasonNames() {
 	if (options.crossSeason) {
-		document.getElementById('season_0').innerHTML = language == "cn"?"春天 & 夏天":"Spring & Summer";
-		document.getElementById('season_1').innerHTML = language == "cn"?"夏天 & 秋天":"Summer & Fall";
-		document.getElementById('season_2').innerHTML = language == "cn"?"秋天 & 冬天":"Fall & Winter";
-		document.getElementById('season_3').innerHTML = language == "cn"?"冬天 & 春天":"Winter & Spring";
+		document.getElementById('season_0').innerHTML = language == "cn" ? "春天 & 夏天" : "Spring & Summer";
+		document.getElementById('season_1').innerHTML = language == "cn" ? "夏天 & 秋天" : "Summer & Fall";
+		document.getElementById('season_2').innerHTML = language == "cn" ? "秋天 & 冬天" : "Fall & Winter";
+		document.getElementById('season_3').innerHTML = language == "cn" ? "冬天 & 春天" : "Winter & Spring";
 	}
 	else {
-		document.getElementById('season_0').innerHTML = language == "cn"?"春天":"Spring";
-		document.getElementById('season_1').innerHTML = language == "cn"?"夏天":"Summer";
-		document.getElementById('season_2').innerHTML = language == "cn"?"秋天":"Fall";
-		document.getElementById('season_3').innerHTML = language == "cn"?"冬天":"Winter";
+		document.getElementById('season_0').innerHTML = language == "cn" ? "春天" : "Spring";
+		document.getElementById('season_1').innerHTML = language == "cn" ? "夏天" : "Summer";
+		document.getElementById('season_2').innerHTML = language == "cn" ? "秋天" : "Fall";
+		document.getElementById('season_3').innerHTML = language == "cn" ? "冬天" : "Winter";
 	}
 }
 
@@ -1194,7 +1339,7 @@ function updateData() {
 
 	options.foodIndex = document.getElementById('select_food').value;
 	options.foodLevel = parseInt(document.getElementById('select_food').options[options.foodIndex].value);
-	if (options.buyFert && options.fertilizer == 4)
+	if (options.buyFert && options.fertilizer == 5)
 		document.getElementById('speed_gro_source').disabled = false;
 	else
 		document.getElementById('speed_gro_source').disabled = true;

@@ -10,10 +10,10 @@ var crops = {
     "url": "http://stardewvalleywiki.com/Carrot",
     "img": "carrot.png",
     "seeds": {
-      "sell":0,
+      "sell": 15,
       "pierre": 0,
       "joja": 0,
-      "special": 0.001,
+      "special": 0,
       "specialLoc": "Unpurchasable",
       "specialUrl": "https://stardewvalleywiki.com/Carrot_Seeds"
     },
@@ -31,14 +31,14 @@ var crops = {
   },
   "summersquash": {
     "name": "金皮西葫芦",
-    "en_name":"Summer Squash",
+    "en_name": "Summer Squash",
     "url": "https://stardewvalleywiki.com/Summer_Squash",
     "img": "summersquash.png",
     "seeds": {
-      "sell": 0,
+      "sell": 20,
       "pierre": 0,
       "joja": 0,
-      "special": 0.001,
+      "special": 0,
       "specialLoc": "",
       "specialUrl": ""
     },
@@ -56,14 +56,14 @@ var crops = {
   },
   "broccoli": {
     "name": "西兰花",
-    "en_name":"Broccoli",
+    "en_name": "Broccoli",
     "url": "https://stardewvalleywiki.com/Broccoli",
     "img": "broccoli.png",
     "seeds": {
-      "sell": 0,
+      "sell": 40,
       "pierre": 0,
       "joja": 0,
-      "special": 0.001,
+      "special": 0,
       "specialLoc": "",
       "specialUrl": ""
     },
@@ -81,14 +81,14 @@ var crops = {
   },
   "powdermelon": {
     "name": "霜瓜",
-    "en_name":"Powdermelon",
+    "en_name": "Powdermelon",
     "url": "https://stardewvalleywiki.com/Powdermelon",
     "img": "powdermelon.png",
     "seeds": {
-      "sell": 0,
+      "sell": 20,
       "pierre": 0,
       "joja": 0,
-      "special": 0.001,
+      "special": 0,
       "specialLoc": "",
       "specialUrl": ""
     },
@@ -106,10 +106,11 @@ var crops = {
   },
   "amaranth": {
     "name": "苋菜",
-    "en_name":"Amaranth",
+    "en_name": "Amaranth",
     "url": "http://stardewvalleywiki.com/Amaranth",
     "img": "amaranth.png",
     "seeds": {
+      "sell": 35,
       "pierre": 70,
       "joja": 87,
       "special": 0,
@@ -130,10 +131,11 @@ var crops = {
   },
   "grape": {
     "name": "葡萄",
-    "en_name":"Grape",
+    "en_name": "Grape",
     "url": "http://stardewvalleywiki.com/Grape",
     "img": "grape.png",
     "seeds": {
+      "sell": 30,
       "pierre": 60,
       "joja": 75,
       "special": 0,
@@ -154,10 +156,11 @@ var crops = {
   },
   "hops": {
     "name": "啤酒花",
-    "en_name":"Hops",
+    "en_name": "Hops",
     "url": "http://stardewvalleywiki.com/Hops",
     "img": "hops.png",
     "seeds": {
+      "sell": 30,
       "pierre": 60,
       "joja": 75,
       "special": 0,
@@ -179,10 +182,11 @@ var crops = {
   },
   "pineapple": {
     "name": "菠萝",
-    "en_name":"Pineapple",
+    "en_name": "Pineapple",
     "url": "http://stardewvalleywiki.com/Pineapple",
     "img": "pineapple.png",
     "seeds": {
+      "sell": 240,
       "pierre": 0,
       "joja": 0,
       "special": 400,
@@ -203,10 +207,11 @@ var crops = {
   },
   "sweetgemberry": {
     "name": "宝石甜莓",
-    "en_name":"Sweet Gem Berry",
+    "en_name": "Sweet Gem Berry",
     "url": "http://stardewvalleywiki.com/Sweet_Gem_Berry",
     "img": "sweetgemberry.png",
     "seeds": {
+      "sell": 200,
       "pierre": 0,
       "joja": 0,
       "special": 1000,
@@ -225,10 +230,11 @@ var crops = {
   },
   "tealeaves": {
     "name": "茶叶",
-    "en_name":"Tea Leaves",
+    "en_name": "Tea Leaves",
     "url": "http://stardewvalleywiki.com/Tea_Leaves",
     "img": "tealeaves.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 2500,
@@ -250,10 +256,11 @@ var crops = {
   },
   "fairyrose": {
     "name": "玫瑰仙子",
-    "en_name":"Fairy Rose",
+    "en_name": "Fairy Rose",
     "url": "http://stardewvalleywiki.com/Fairy_Rose",
     "img": "fairyrose.png",
     "seeds": {
+      "sell": 100,
       "pierre": 200,
       "joja": 250,
       "special": 0,
@@ -272,10 +279,11 @@ var crops = {
   },
   "tulip": {
     "name": "郁金香",
-    "en_name":"Tulip",
+    "en_name": "Tulip",
     "url": "http://stardewvalleywiki.com/Tulip",
     "img": "tulip.png",
     "seeds": {
+      "sell": 10,
       "pierre": 20,
       "joja": 25,
       "special": 0,
@@ -294,10 +302,11 @@ var crops = {
   },
   "bluejazz": {
     "name": "蓝爵士",
-    "en_name":"Blue Jazz",
+    "en_name": "Blue Jazz",
     "url": "http://stardewvalleywiki.com/Blue_Jazz",
     "img": "bluejazz.png",
     "seeds": {
+      "sell": 15,
       "pierre": 30,
       "joja": 37,
       "special": 0,
@@ -316,10 +325,11 @@ var crops = {
   },
   "sunflower": {
     "name": "向日葵",
-    "en_name":"Sunflower",
+    "en_name": "Sunflower",
     "url": "http://stardewvalleywiki.com/Sunflower",
     "img": "sunflower.png",
     "seeds": {
+      "sell": 20,
       "pierre": 200,
       "joja": 125,
       "special": 0,
@@ -338,10 +348,11 @@ var crops = {
   },
   "coffeebean": {
     "name": "咖啡豆",
-    "en_name":"Coffee Bean",
+    "en_name": "Coffee Bean",
     "url": "http://stardewvalleywiki.com/Coffee_Bean",
     "img": "coffeebean.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 2500,
@@ -362,10 +373,11 @@ var crops = {
   },
   "poppy": {
     "name": "虞美人",
-    "en_name":"Poppy",
+    "en_name": "Poppy",
     "url": "http://stardewvalleywiki.com/Poppy",
     "img": "poppy.png",
     "seeds": {
+      "sell": 50,
       "pierre": 100,
       "joja": 125,
       "special": 0,
@@ -384,10 +396,11 @@ var crops = {
   },
   "summerspangle": {
     "name": "夏季亮片",
-    "en_name":"Summer Spangle",
+    "en_name": "Summer Spangle",
     "url": "http://stardewvalleywiki.com/Summer_Spangle",
     "img": "summerspangle.png",
     "seeds": {
+      "sell": 25,
       "pierre": 50,
       "joja": 62,
       "special": 0,
@@ -406,10 +419,11 @@ var crops = {
   },
   "parsnip": {
     "name": "防风草",
-    "en_name":"Parsnip",
+    "en_name": "Parsnip",
     "url": "http://stardewvalleywiki.com/Parsnip",
     "img": "parsnip.png",
     "seeds": {
+      "sell": 10,
       "pierre": 20,
       "joja": 25,
       "special": 0,
@@ -430,10 +444,11 @@ var crops = {
   },
   "greenbean": {
     "name": "青豆",
-    "en_name":"Green Bean",
+    "en_name": "Green Bean",
     "url": "http://stardewvalleywiki.com/Green_Bean",
     "img": "greenbean.png",
     "seeds": {
+      "sell": 30,
       "pierre": 60,
       "joja": 75,
       "special": 0,
@@ -454,10 +469,11 @@ var crops = {
   },
   "cauliflower": {
     "name": "花椰菜",
-    "en_name":"Cauliflower",
+    "en_name": "Cauliflower",
     "url": "http://stardewvalleywiki.com/Cauliflower",
     "img": "cauliflower.png",
     "seeds": {
+      "sell": 40,
       "pierre": 80,
       "joja": 100,
       "special": 0,
@@ -478,10 +494,11 @@ var crops = {
   },
   "potato": {
     "name": "土豆",
-    "en_name":"Potato",
+    "en_name": "Potato",
     "url": "http://stardewvalleywiki.com/Potato",
     "img": "potato.png",
     "seeds": {
+      "sell": 25,
       "pierre": 50,
       "joja": 62,
       "special": 0,
@@ -502,10 +519,11 @@ var crops = {
   },
   "garlic": {
     "name": "大蒜",
-    "en_name":"Garlic",
+    "en_name": "Garlic",
     "url": "http://stardewvalleywiki.com/Garlic",
     "img": "garlic.png",
     "seeds": {
+      "sell": 20,
       "pierre": 40,
       "joja": 0,
       "special": 0,
@@ -526,10 +544,11 @@ var crops = {
   },
   "taroroot": {
     "name": "芋头",
-    "en_name":"Taro Root",
+    "en_name": "Taro Root",
     "url": "http://stardewvalleywiki.com/Taro_Root",
     "img": "taroroot.png",
     "seeds": {
+      "sell": 20,
       "pierre": 0,
       "joja": 0,
       "special": 24,
@@ -550,10 +569,11 @@ var crops = {
   },
   "kale": {
     "name": "甘蓝",
-    "en_name":"Kale",
+    "en_name": "Kale",
     "url": "http://stardewvalleywiki.com/Kale",
     "img": "kale.png",
     "seeds": {
+      "sell": 35,
       "pierre": 70,
       "joja": 87,
       "special": 0,
@@ -574,10 +594,11 @@ var crops = {
   },
   "unmilledrice": {
     "name": "未碾米",
-    "en_name":"Unmilled Rice",
+    "en_name": "Unmilled Rice",
     "url": "http://stardewvalleywiki.com/Unmilled_Rice",
     "img": "unmilledrice.png",
     "seeds": {
+      "sell": 20,
       "pierre": 40,
       "joja": 0,
       "special": 1000,
@@ -598,10 +619,11 @@ var crops = {
   },
   "rhubarb": {
     "name": "大黄",
-    "en_name":"Rhubarb",
+    "en_name": "Rhubarb",
     "url": "http://stardewvalleywiki.com/Rhubarb",
     "img": "rhubarb.png",
     "seeds": {
+      "sell": 50,
       "pierre": 0,
       "joja": 0,
       "special": 100,
@@ -622,10 +644,11 @@ var crops = {
   },
   "melon": {
     "name": "甜瓜",
-    "en_name":"Melon",
+    "en_name": "Melon",
     "url": "http://stardewvalleywiki.com/Melon",
     "img": "melon.png",
     "seeds": {
+      "sell": 40,
       "pierre": 80,
       "joja": 100,
       "special": 0,
@@ -646,10 +669,11 @@ var crops = {
   },
   "tomato": {
     "name": "西红柿",
-    "en_name":"Tomato",
+    "en_name": "Tomato",
     "url": "http://stardewvalleywiki.com/Tomato",
     "img": "tomato.png",
     "seeds": {
+      "sell": 15,
       "pierre": 50,
       "joja": 62,
       "special": 0,
@@ -670,10 +694,11 @@ var crops = {
   },
   "blueberry": {
     "name": "蓝莓",
-    "en_name":"Blueberry",
+    "en_name": "Blueberry",
     "url": "http://stardewvalleywiki.com/Blueberry",
     "img": "blueberry.png",
     "seeds": {
+      "sell": 40,
       "pierre": 80,
       "joja": 0,
       "special": 0,
@@ -694,10 +719,11 @@ var crops = {
   },
   "hotpepper": {
     "name": "辣椒",
-    "en_name":"Hot Pepper",
+    "en_name": "Hot Pepper",
     "url": "http://stardewvalleywiki.com/Hot_Pepper",
     "img": "hotpepper.png",
     "seeds": {
+      "sell": 20,
       "pierre": 40,
       "joja": 50,
       "special": 0,
@@ -718,10 +744,11 @@ var crops = {
   },
   "wheat": {
     "name": "小麦",
-    "en_name":"Wheat",
+    "en_name": "Wheat",
     "url": "http://stardewvalleywiki.com/Wheat",
     "img": "wheat.png",
     "seeds": {
+      "sell": 5,
       "pierre": 10,
       "joja": 12,
       "special": 0,
@@ -743,10 +770,11 @@ var crops = {
   },
   "radish": {
     "name": "萝卜",
-    "en_name":"Radish",
+    "en_name": "Radish",
     "url": "http://stardewvalleywiki.com/Radish",
     "img": "radish.png",
     "seeds": {
+      "sell": 20,
       "pierre": 40,
       "joja": 50,
       "special": 0,
@@ -767,10 +795,11 @@ var crops = {
   },
   "redcabbage": {
     "name": "红叶卷心菜",
-    "en_name":"Red Cabbage",
+    "en_name": "Red Cabbage",
     "url": "http://stardewvalleywiki.com/Red_Cabbage",
     "img": "redcabbage.png",
     "seeds": {
+      "sell": 50,
       "pierre": 100,
       "joja": 0,
       "special": 0,
@@ -791,10 +820,11 @@ var crops = {
   },
   "starfruit": {
     "name": "杨桃",
-    "en_name":"Starfruit",
+    "en_name": "Starfruit",
     "url": "http://stardewvalleywiki.com/Starfruit",
     "img": "starfruit.png",
     "seeds": {
+      "sell": 200,
       "pierre": 0,
       "joja": 0,
       "special": 400,
@@ -815,10 +845,11 @@ var crops = {
   },
   "corn": {
     "name": "玉米",
-    "en_name":"Corn",
+    "en_name": "Corn",
     "url": "http://stardewvalleywiki.com/Corn",
     "img": "corn.png",
     "seeds": {
+      "sell": 75,
       "pierre": 150,
       "joja": 187,
       "special": 0,
@@ -839,10 +870,11 @@ var crops = {
   },
   "eggplant": {
     "name": "茄子",
-    "en_name":"Eggplant",
+    "en_name": "Eggplant",
     "url": "http://stardewvalleywiki.com/Eggplant",
     "img": "eggplant.png",
     "seeds": {
+      "sell": 10,
       "pierre": 20,
       "joja": 25,
       "special": 0,
@@ -863,10 +895,11 @@ var crops = {
   },
   "artichoke": {
     "name": "洋蓟",
-    "en_name":"Artichoke",
+    "en_name": "Artichoke",
     "url": "http://stardewvalleywiki.com/Artichoke",
     "img": "artichoke.png",
     "seeds": {
+      "sell": 15,
       "pierre": 30,
       "joja": 0,
       "special": 0,
@@ -887,10 +920,11 @@ var crops = {
   },
   "pumpkin": {
     "name": "南瓜",
-    "en_name":"Pumpkin",
+    "en_name": "Pumpkin",
     "url": "http://stardewvalleywiki.com/Pumpkin",
     "img": "pumpkin.png",
     "seeds": {
+      "sell": 50,
       "pierre": 100,
       "joja": 125,
       "special": 0,
@@ -911,10 +945,11 @@ var crops = {
   },
   "bokchoy": {
     "name": "小白菜",
-    "en_name":"Bok Choy",
+    "en_name": "Bok Choy",
     "url": "http://stardewvalleywiki.com/Bok_Choy",
     "img": "bokchoy.png",
     "seeds": {
+      "sell": 25,
       "pierre": 50,
       "joja": 62,
       "special": 0,
@@ -935,10 +970,11 @@ var crops = {
   },
   "yam": {
     "name": "山药",
-    "en_name":"Yam",
+    "en_name": "Yam",
     "url": "http://stardewvalleywiki.com/Yam",
     "img": "yam.png",
     "seeds": {
+      "sell": 30,
       "pierre": 60,
       "joja": 75,
       "special": 0,
@@ -959,10 +995,11 @@ var crops = {
   },
   "cranberries": {
     "name": "蔓越莓",
-    "en_name":"Cranberries",
+    "en_name": "Cranberries",
     "url": "http://stardewvalleywiki.com/Cranberries",
     "img": "cranberries.png",
     "seeds": {
+      "sell": 60,
       "pierre": 240,
       "joja": 300,
       "special": 0,
@@ -983,10 +1020,11 @@ var crops = {
   },
   "beet": {
     "name": "甜菜",
-    "en_name":"Beet",
+    "en_name": "Beet",
     "url": "http://stardewvalleywiki.com/Beet",
     "img": "beet.png",
     "seeds": {
+      "sell": 10,
       "pierre": 0,
       "joja": 0,
       "special": 20,
@@ -1007,10 +1045,11 @@ var crops = {
   },
   "ancientfruit": {
     "name": "上古水果",
-    "en_name":"Ancient Fruit",
+    "en_name": "Ancient Fruit",
     "url": "http://stardewvalleywiki.com/Ancient_Fruit",
     "img": "ancientfruit.png",
     "seeds": {
+      "sell": 30,
       "pierre": 0,
       "joja": 0,
       "special": 450,
@@ -1031,10 +1070,11 @@ var crops = {
   },
   "cactusfruit": {
     "name": "仙人掌果子",
-    "en_name":"Cactus Fruit",
+    "en_name": "Cactus Fruit",
     "url": "http://stardewvalleywiki.com/Cactus_Fruit",
     "img": "cactusfruit.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 150,
@@ -1055,10 +1095,11 @@ var crops = {
   },
   "strawberry": {
     "name": "草莓",
-    "en_name":"Strawberry",
+    "en_name": "Strawberry",
     "url": "http://stardewvalleywiki.com/Strawberry",
     "img": "strawberry.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 100,
@@ -1079,10 +1120,11 @@ var crops = {
   },
   "springseeds": {
     "name": "春季种子",
-    "en_name":"Spring Seeds",
+    "en_name": "Spring Seeds",
     "url": "http://stardewvalleywiki.com/Spring_Seeds",
     "img": "springseeds.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 1000,
@@ -1103,10 +1145,11 @@ var crops = {
   },
   "summerseeds": {
     "name": "夏季种子",
-    "en_name":"Summer Seeds",
+    "en_name": "Summer Seeds",
     "url": "http://stardewvalleywiki.com/Summer_Seeds",
     "img": "summerseeds.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 1000,
@@ -1129,10 +1172,11 @@ var crops = {
   },
   "fallseeds": {
     "name": "秋季种子",
-    "en_name":"Fall Seeds",
+    "en_name": "Fall Seeds",
     "url": "http://stardewvalleywiki.com/Fall_Seeds",
     "img": "fallseeds.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 1000,
@@ -1155,10 +1199,11 @@ var crops = {
   },
   "winterseeds": {
     "name": "冬季种子",
-    "en_name":"Winter Seeds",
+    "en_name": "Winter Seeds",
     "url": "http://stardewvalleywiki.com/Winter_Seeds",
     "img": "winterseeds.png",
     "seeds": {
+      "sell": 0,
       "pierre": 0,
       "joja": 0,
       "special": 1000,
