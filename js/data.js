@@ -1,29 +1,34 @@
 // 用于绘制图表的选项
 var options = {
-	"produce": 0, // 产量类型，0表示默认
-	"planted": 1, // 种植方式，1表示默认
-	"maxSeedMoney": 0, // 最大种子花费，0表示默认
-	"days": 28, // 天数，28表示默认
-	"fertilizer": 2, // 肥料类型，2表示默认
-	"level": 0, // 地图等级，0表示默认
-	"season": 4, // 季节，4表示默认
-	"buySeed": false, // 是否购买种子，默认为false
-	"buyFert": false, // 是否购买肥料，默认为false
-	"average": false, // 是否计算平均值，默认为false
-	"fertilizerSource": 0, // 肥料来源，0表示默认
+	"produce": 0, // 出售产品类型，默认=0，为出售原材料
+	"equipment": 0, // 设备数量，默认=0，为无限多
+	"sellRaw": false, // 是否销售原材料，默认不销售
+	"aging": 0, // 陈酿程度，默认=0，为不陈酿
+	"planted": 1, // 种植数量，默认为1
+	"maxSeedMoney": 0, // 最大种子花费，默认=0，为无限多
+	"days": 28, // 生长周期，默认=28，为28天
+	"fertilizer": 2, // 肥料类型，默认=2，为高级肥料
+	"level": 0, // 等级，0表示默认
+	"season": 4, // 生长季节，默认=4，为温室
+	"buySeed": false, // 是否购买种子，默认不购买
+	"buyFert": false, // 是否购买肥料，默认不购买
+	"average": false, // 是否计算平均值，默认不计算
+	"fertilizerSource": 0, // 肥料来源，默认=0，为皮埃尔出售
 	"seeds": {
-		"pierre": true, // Pierre的种子是否可用
-		"joja": true, // Joja的种子是否可用
-		"special": true // 特殊种子是否可用
+		"pierre": true, // 是否选择购买皮埃尔的种子,默认选择
+		"joja": true, // 是否选择购买joja的种子，默认选择
+		"special": true // 是否选择购买特殊种子，默认选择
 	},
 	"skills": {
-		"till": false, // 耕种技能，默认为false
-		"agri": false, // 农业技能，默认为false
-		"arti": false // 艺术技能，默认为false
+		"till": false, // 是否具备“农耕人”技能，默认不具备
+		"agri": false, // 是否具备“农业学家”技能，默认不具备
+		"arti": false, // 是否“工匠”技能，默认不具备
+		"gatherer": false, // 是否“收集者”技能，默认不具备
+		"botanist": false // 是否“植物学家”技能，默认不具备
 	},
-	"foodIndex": 0, // 食物索引，0表示默认
-	"foodLevel": 0, // 食物等级，0表示默认
-	"extra": false // 是否包含额外信息，默认为false
+	"foodIndex": 0, // 耕种增益食物品种，默认=0，为无
+	"foodLevel": 0, // 耕种增益食物提升等级，默认=0，为无
+	"extra": false // 是否需要额外信息选项，默认不显示
 };
 
 
@@ -130,7 +135,7 @@ var seasons = [
 		"duration": 28,
 		"crops": [
 			crops.broccoli, // 西兰花
-			crops.sweetgemberry, // 甜宝石莓
+			crops.sweetgemberry, // 宝石甜莓
 			crops.cranberries, // 蔓越莓
 			crops.pumpkin, // 南瓜
 			crops.grape, // 葡萄
@@ -180,13 +185,13 @@ var seasons = [
 			crops.hops, // 啤酒花
 			crops.melon, // 甜瓜
 			crops.hotpepper, // 辣椒
-			crops.tomato, // 番茄
-			crops.radish, // 小萝卜
-			crops.summerspangle, // 夏季花朵
-			crops.poppy, // 罂粟花
+			crops.tomato, // 西红柿
+			crops.radish, // 萝卜
+			crops.summerspangle, // 夏季亮片
+			crops.poppy, // 虞美人
 			crops.wheat, // 小麦
 			crops.corn, // 玉米
-			crops.sweetgemberry, // 甜宝石莓
+			crops.sweetgemberry, // 宝石甜莓
 			crops.cranberries, // 蔓越莓
 			crops.pumpkin, // 南瓜
 			crops.grape, // 葡萄

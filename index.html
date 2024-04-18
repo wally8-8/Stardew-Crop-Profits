@@ -66,22 +66,9 @@
 			</tr>
 
 			<tr>
-				<td>生产类型：</td>
-				<td>
-					<select id="select_produce" onChange="refresh()">
-						<option value="0" selected="true">未加工</option>
-						<option value="1">罐头制品</option>
-						<option value="2">桶制品</option>
-						<option value="3">种子</option>
-					</select>
-				</td>
-			</tr>
-
-			<tr>
 				<td>作物数量：</td>
 				<td><input type="number" id="number_planted" value="1" onChange="refresh()" /></td>
 			</tr>
-
 			<tr>
 				<td>本次采购的最大金额：&nbsp;&nbsp;</td>
 				<td><input type="number" id="max_seed_money" value="0" onChange="refresh()" /></td>
@@ -95,6 +82,45 @@
 		</table>
 
 		<table cellspacing="2">
+			<tr>
+				<td>生产类型：</td>
+				<td>
+					<select id="select_produce" onChange="refresh()">
+						<option value="0" selected="true">未加工</option>
+						<option value="1">罐头制品</option>
+						<option value="2">桶制品</option>
+						<option value="3">种子</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="2" class="sub">
+					<table cellspacing="2" class="subt">
+						<tr>
+							<td>设备数量：</td>
+							<td><input type="number" id="equipment" value="0" onChange="refresh()" /></td>
+						</tr>
+						<tr>
+							<td>是否允许：</td>
+							<td><input type="checkbox" id="check_sellRaw" onChange="refresh()" />
+								不能被加工的<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作物加入对比
+							</td>
+						</tr>
+						<tr>
+							<td>陈酿</td>
+							<td>
+								<select id="select_aging" onChange="refresh()">
+									<option value="0" selected="true">不陈酿</option>
+									<option value="1">银星</option>
+									<option value="2">金星</option>
+									<option value="3">铱星</option>
+								</select>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
 
 			<tr>
 				<td>种子来源：</td>
@@ -125,7 +151,7 @@
 						<option value="5">高级生长激素</option>
 						<option value="6">顶级生长激素</option>
 					</select>
-				</td>
+				</td>                 
 			</tr>
 
 			<tr>
@@ -154,7 +180,7 @@
 					<table cellspacing="2" class="subt">
 						<tr>
 							<td>5级能力：</td>
-							<td><input type="checkbox" id="check_skillsTill" onChange="refresh()" /> 农场主<br /></td>
+							<td><input type="checkbox" id="check_skillsTill" onChange="refresh()" /> 农耕人<br /></td>
 						</tr>
 						<tr>
 							<td>10级能力：</td>
@@ -162,7 +188,7 @@
 								<select id="select_skills" onChange="refresh()">
 									<option value="0" selected="true">无</option>
 									<option value="1">农业学家</option>
-									<option value="2">制品生产家</option>
+									<option value="2">工匠</option>
 								</select>
 							</td>
 						</tr>
@@ -224,11 +250,21 @@
 					<div id="divhelp"><a href="help(cn).html">帮助</a></div>
 				</td>
 				<td id="tdhelp">
+					<div id="divhelp"><a href="changes.html">更新事项</a></div>
+				</td>
+				<td id="tdhelp">
 					<div id="divhelp"><a href="#" id="reset">重置</a></div>
 				</td>
 			</tr>
 
 		</table>
+	</div>
+
+	<div class="footer">
+		<p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.6.3</a> &copy; <a
+				href="https://twitter.com/ConcernedApe" target="_blank">ConcernedApe</a> | Website designed by wally-88
+			| <a href="https://gitee.com/wally-88/stardew-profit-calculator" target="_blank">Stardew Profits v1.1.0</a>
+		</p>
 	</div>
 
 	<script src="js/time.js"> </script>

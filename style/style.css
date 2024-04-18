@@ -3,42 +3,42 @@ body {
 	background: #000000 no-repeat center top fixed;
 	-webkit-background-size: cover;
 	/* 使用 Webkit 内核浏览器的背景尺寸 */
-	-moz-background-size: cover;
 	/* 使用 Gecko 内核浏览器的背景尺寸 */
-	-o-background-size: cover;
+	-moz-background-size: cover;
 	/* 使用 Opera 浏览器的背景尺寸 */
-	background-size: cover;
+	-o-background-size: cover;
 	/* 通用背景尺寸设置 */
+	background-size: cover;
 }
 
-/* 设置标题样式 */
 .title {
+/* 设置标题样式 */
 	margin: auto;
 	margin-top: 16px;
 	background-image: url("../img/title.png");
 	/* 设置背景图片路径 */
-	width: 512px;
 	height: 72px;
+	width: 512px;
 	-webkit-filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.5));
 	/* 使用 Webkit 内核浏览器的滤镜效果 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
 	/* 使用 IE 浏览器的滤镜效果 */
-	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
 	/* 通用滤镜效果设置 */
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
 }
 
 /* 设置图表样式 */
 .graph {
-	margin: auto;
 	margin-top: 16px;
-	width: 100%;
+	margin: auto;
 	text-align: center;
+	width: 100%;
 	-webkit-filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.75));
 	/* 使用 Webkit 内核浏览器的滤镜效果 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
 	/* 使用 IE 浏览器的滤镜效果 */
-	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
 	/* 通用滤镜效果设置 */
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#444')";
 }
 
 /* 设置坐标轴样式 */
@@ -65,449 +65,493 @@ body {
 	border-radius: 8px;
 	padding: 8px;
 	width: 900px;
-	-webkit-filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.75));
 	/* 使用 Webkit 内核浏览器的滤镜效果 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
+	-webkit-filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.75));
 	/* 使用 IE 浏览器的滤镜效果 */
-	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
 	/* 通用滤镜效果设置 */
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
 	display: flex;
 }
 
 /* 设置选项表格的样式 */
 .options table {
-	margin: 4px auto;
 	/* 设置表格与周围元素之间的上下边距为4px，左右自动居中 */
-	flex-grow: inherit;
+	margin: 4px auto;
 	/* 让表格在容器中自动扩展以填充剩余空间 */
+	flex-grow: inherit;
 }
 
 /* 设置表格中每个单元格的样式 */
 .options table tr td {
-	padding: 4px;
 	/* 设置单元格内边距为4px */
-	background-color: #222222;
+	padding: 4px;
 	/* 设置单元格背景颜色为深灰色 */
-	border-radius: 4px;
+	background-color: #222222;
 	/* 设置单元格的边框圆角半径为4px */
+	border-radius: 4px;
 }
 
 /* 设置特定行（如包含子表格的行）的样式 */
 .options table tr .sub {
-	background-color: transparent;
 	/* 将特定行背景颜色设为透明 */
-	padding: 0px;
+	background-color: transparent;
 	/* 清除特定行的内边距 */
+	padding: 0px;
 }
 
 /* 设置子表格的样式 */
 .options table tr td .subt {
-	background-color: transparent;
 	/* 设置子表格背景颜色为透明 */
-	margin: 0 auto;
+	background-color: transparent;
 	/* 设置子表格水平居中 */
-	margin-left: 16px;
+	margin: 0 auto;
 	/* 设置子表格左边距为16px */
-	margin-top: -2px;
+	margin-left: 16px;
 	/* 设置子表格顶部外边距为-2px（向上偏移）*/
-	margin-bottom: -2px;
+	margin-top: -2px;
 	/* 设置子表格底部外边距为-2px（向下偏移）*/
-	width: -webkit-fill-available;
+	margin-bottom: -2px;
 	/* 设置子表格宽度自适应父容器 */
+	width: -webkit-fill-available;
 }
 
 /* 设置子表格中每个单元格的样式 */
 .options table tr td .subt td {
-	background-color: #181818;
 	/* 设置子表格单元格背景颜色为深灰色 */
-	margin: 0px;
+	background-color: #181818;
 	/* 清除子表格单元格的外边距 */
+	margin: 0px;
 }
 
 /* 设置帮助表格的样式 */
 #tdhelp {
-	background-color: transparent;
 	/* 将帮助表格背景颜色设为透明 */
+	background-color: transparent;
 }
 
 /* 设置帮助 div 的样式 */
 #divhelp {
-	padding: 12px;
 	/* 设置帮助 div 的内边距为12px */
-	margin: auto;
+	padding: 12px;
 	/* 将帮助 div 水平居中 */
-	text-align: center;
+	margin: auto;
 	/* 设置文本在帮助 div 中居中对齐 */
+	text-align: center;
 }
 
 /* 设置帮助链接样式 */
 #divhelp a {
-	padding: 8px 12px 8px 12px;
 	/* 设置帮助链接的内边距 */
-	background-color: #111111;
+	padding: 8px 12px 8px 12px;
 	/* 设置帮助链接的背景颜色为深灰色 */
-	border: 1px #000000 solid;
+	background-color: #111111;
 	/* 设置帮助链接的边框为1px实线黑色 */
-	border-radius: 8px;
+	border: 1px #000000 solid;
 	/* 设置帮助链接的边框圆角半径为8px */
-	color: #eeeeee;
+	border-radius: 8px;
 	/* 设置帮助链接文字颜色为浅灰色 */
-	text-decoration: none;
+	color: #eeeeee;
 	/* 清除帮助链接的下划线 */
+	text-decoration: none;
 }
 
 /* 设置帮助链接悬停状态样式 */
 #divhelp a:hover {
-	color: #eeeeee;
 	/* 设置帮助链接悬停时的文字颜色为浅灰色 */
-	text-decoration: none;
+	color: #eeeeee;
 	/* 鼠标悬停时清除帮助链接的下划线 */
+	text-decoration: none;
 }
 
 /* 设置已访问的帮助链接样式 */
 #divhelp a:visited {
-	color: #eeeeee;
 	/* 设置已访问的帮助链接文字颜色为浅灰色 */
-	text-decoration: none;
+	color: #eeeeee;
 	/* 清除已访问的帮助链接的下划线 */
+	text-decoration: none;
 }
 
 /* 设置数字输入框样式 */
 input[type=number] {
-	-moz-appearance: textfield;
 	/* Firefox浏览器下将数字输入框样式设为文本框样式 */
-	width: 64px;
+	-moz-appearance: textfield;
 	/* 设置数字输入框宽度为64px */
-	background-color: #111111;
+	width: 64px;
 	/* 设置数字输入框背景颜色为深灰色 */
-	color: #eeeeee;
+	background-color: #111111;
 	/* 设置数字输入框文字颜色为浅灰色 */
-	padding: 2px 2px 2px 4px;
+	color: #eeeeee;
 	/* 设置数字输入框内边距 */
-	border-radius: 3px;
+	padding: 2px 2px 2px 4px;
 	/* 设置数字输入框边框圆角半径为3px */
-	border-width: 0px;
+	border-radius: 3px;
 	/* 设置数字输入框边框宽度为0px */
+	border-width: 0px;
 }
 
 /* 隐藏数字输入框的默认样式按钮 */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-	-webkit-appearance: none;
 	/* 隐藏内部和外部微调按钮 */
+	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	cursor: pointer;
 	/* 鼠标移入时显示指针样式 */
+	cursor: pointer;
 }
 
 /* 设置数字输入框悬停状态下内部微调按钮的样式 */
 input[type=number]:hover::-webkit-inner-spin-button {
-	background: url("../img/arrows.png") no-repeat 50% 50%;
 	/* 设置内部微调按钮背景图像 */
-	width: 14px;
+	background: url("../img/arrows.png") no-repeat 50% 50%;
 	/* 设置内部微调按钮宽度为14px */
-	height: 14px;
+	width: 14px;
 	/* 设置内部微调按钮高度为14px */
-	padding: 4px;
+	height: 14px;
 	/* 设置内部微调按钮内边距为4px */
-	position: relative;
+	padding: 4px;
 	/* 设置内部微调按钮相对定位 */
-	right: -4px;
+	position: relative;
 	/* 将内部微调按钮向左偏移4px */
+	right: -4px;
 }
 
 /* 设置禁用状态的输入框样式 */
 input:disabled {
-	color: #888888;
 	/* 设置禁用状态的输入框文字颜色为灰色 */
+	color: #888888;
 }
-
 /* 设置下拉列表样式 */
 select {
+	/* 隐藏Firefox浏览器下的默认样式 */
 	-webkit-appearance: none;
 	/* 隐藏webkit浏览器下的默认样式 */
 	-moz-appearance: none;
-	/* 隐藏Firefox浏览器下的默认样式 */
-	appearance: none;
 	/* 隐藏其他浏览器下的默认样式 */
-	cursor: pointer;
+	appearance: none;
 	/* 设置鼠标移入时显示指针样式 */
-	background: url("../img/drop.png") no-repeat #111111 right;
+	cursor: pointer;
 	/* 设置下拉箭头图标及其位置 */
-	color: #eeeeee;
+	background: url("../img/drop.png") no-repeat #111111 right;
 	/* 设置下拉列表文字颜色为浅灰色 */
-	padding: 2px 16px 2px 4px;
+	color: #eeeeee;
 	/* 设置下拉列表内边距 */
-	border-radius: 3px;
+	padding: 2px 16px 2px 4px;
 	/* 设置下拉列表边框圆角半径为3px */
-	border-width: 0px;
+	border-radius: 3px;
 	/* 设置下拉列表边框宽度为0px */
-	width: 100%;
+	border-width: 0px;
 	/* 设置下拉列表宽度为100% */
+	width: 100%;
 }
 
 /* 隐藏IE浏览器下的默认下拉箭头 */
 select::-ms-expand {
-	display: none;
 	/* 隐藏IE浏览器下的默认下拉箭头 */
+	display: none;
 }
 
 /* 设置禁用状态的下拉列表样式 */
 select:disabled {
-	background: url("../img/drop_dis.png") no-repeat #111111 right;
 	/* 设置禁用状态下的下拉箭头图标及其位置 */
-	color: #888888;
+	background: url("../img/drop_dis.png") no-repeat #111111 right;
 	/* 设置禁用状态下的下拉列表文字颜色为灰色 */
+	color: #888888;
 }
 
 /* 设置复选框样式 */
 input[type=checkbox] {
-	cursor: pointer;
 	/* 设置鼠标移入时显示指针样式 */
+	cursor: pointer;
 }
 
 /* 设置提示框标题样式 */
 .tooltipTitle {
-	font: 1em sans-serif;
 	/* 设置字体大小和字体系列 */
-	color: #eeeeee;
+	font: 1em sans-serif;
 	/* 设置文字颜色为浅灰色 */
-	margin: 0px;
+	color: #eeeeee;
 	/* 设置外边距为0px */
+	margin: 0px;
 }
 
 /* 设置额外提示框标题样式 */
 .tooltipTitleExtra {
-	font: 1em sans-serif;
 	/* 设置字体大小和字体系列 */
-	color: #eeeeee;
+	font: 1em sans-serif;
 	/* 设置文字颜色为浅灰色 */
-	margin: 0px;
+	color: #eeeeee;
 	/* 设置外边距为0px */
-	margin-top: 12px;
+	margin: 0px;
 	/* 设置顶部外边距为12px */
+	margin-top: 12px;
 }
 
 /* 设置提示框表格样式 */
 .tooltipTable {
-	padding: 4px 8px 4px 8px;
 	/* 设置内边距 */
+	padding: 4px 8px 4px 8px;
 }
 
 /* 设置提示框表格左侧单元格样式 */
 .tooltipTdLeft {
-	font: 0.875em sans-serif;
 	/* 设置字体大小和字体系列 */
-	color: #eeeeee;
+	font: 0.875em sans-serif;
 	/* 设置文字颜色为浅灰色 */
-	padding: 1px 4px 0px 4px;
+	color: #eeeeee;
 	/* 设置内边距 */
-	margin-bottom: 1px;
+	padding: 1px 4px 0px 4px;
 	/* 设置下边距为1px */
-	vertical-align: bottom;
+	margin-bottom: 1px;
 	/* 设置垂直对齐方式为底部对齐 */
+	vertical-align: bottom;
 }
 
 /* 设置提示框表格左侧带间距单元格样式 */
 .tooltipTdLeftSpace {
-	font: 0.875em sans-serif;
 	/* 设置字体大小和字体系列 */
-	color: #eeeeee;
+	font: 0.875em sans-serif;
 	/* 设置文字颜色为浅灰色 */
-	padding: 8px 4px 0px 4px;
+	color: #eeeeee;
 	/* 设置内边距 */
-	margin-bottom: 1px;
+	padding: 8px 4px 0px 4px;
 	/* 设置下边距为1px */
-	vertical-align: bottom;
+	margin-bottom: 1px;
 	/* 设置垂直对齐方式为底部对齐 */
+	vertical-align: bottom;
 }
 
 /* 设置提示框表格右侧单元格样式 */
 .tooltipTdRight {
-	font: 0.875em sans-serif;
 	/* 设置字体大小和字体系列 */
-	color: #eeeeee;
+	font: 0.875em sans-serif;
 	/* 设置文字颜色为浅灰色 */
-	padding: 0px 4px 0px 4px;
+	color: #eeeeee;
 	/* 设置内边距 */
-	margin-bottom: 1px;
+	padding: 0px 4px 0px 4px;
 	/* 设置下边距为1px */
-	vertical-align: bottom;
+	margin-bottom: 1px;
 	/* 设置垂直对齐方式为底部对齐 */
+	vertical-align: bottom;
 }
 
 /* 设置提示框表格右侧正数单元格样式 */
 .tooltipTdRightPos {
-	font: 0.875em sans-serif;
 	/* 设置字体大小和字体系列 */
-	color: lime;
+	font: 0.875em sans-serif;
 	/* 设置文字颜色为绿色 */
-	padding: 0px 4px 0px 4px;
+	color: lime;
 	/* 设置内边距 */
-	margin-bottom: 1px;
+	padding: 0px 4px 0px 4px;
 	/* 设置下边距为1px */
-	vertical-align: bottom;
+	margin-bottom: 1px;
 	/* 设置垂直对齐方式为底部对齐 */
+	vertical-align: bottom;
 }
 
 /* 设置提示框表格右侧负数单元格样式 */
 .tooltipTdRightNeg {
-	font: 0.875em sans-serif;
 	/* 设置字体大小和字体系列 */
-	color: red;
+	font: 0.875em sans-serif;
 	/* 设置文字颜色为红色 */
-	padding: 0px 4px 0px 4px;
+	color: red;
 	/* 设置内边距 */
-	margin-bottom: 1px;
+	padding: 0px 4px 0px 4px;
 	/* 设置下边距为1px */
-	vertical-align: bottom;
+	margin-bottom: 1px;
 	/* 设置垂直对齐方式为底部对齐 */
+	vertical-align: bottom;
 }
 
 .gold {
 	width: 16px;
 	height: 16px;
-	margin-bottom: -2px;
 	/* 设置下边距为负2px */
-	margin-left: 2px;
+	margin-bottom: -2px;
 	/* 设置左边距为2px */
-	display: inline-block;
+	margin-left: 2px;
 	/* 设置为行内块元素 */
-	background-image: url("../img/gold.png");
+	display: inline-block;
 	/* 设置背景图片路径 */
-	background-repeat: no-repeat;
+	background-image: url("../img/gold.png");
 	/* 背景不重复 */
-	background-size: cover;
+	background-repeat: no-repeat;
 	/* 背景大小覆盖整个元素 */
-	background-position: center center;
+	background-size: cover;
 	/* 背景位置居中 */
-	color: transparent;
+	background-position: center center;
 	/* 文字颜色透明 */
+	color: transparent;
 }
 
 .footer {
-	bottom: 0px;
 	/* 距离底部距离为0px */
-	text-align: center;
+	bottom: 0px;
 	/* 文本居中对齐 */
-	width: 100%;
+	text-align: center;
 	/* 宽度100% */
-	-webkit-filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1));
+	width: 100%;
 	/* 设置阴影效果 */
+	-webkit-filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 1));
+	/* IE阴影效果 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#000')";
 	/* IE阴影效果 */
 	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#000')";
-	/* IE阴影效果 */
 }
 
 .footer p {
-	color: #eeeeee;
 	/* 设置文字颜色为浅灰色 */
-	font: 0.875em sans-serif;
+	color: #eeeeee;
 	/* 设置字体大小和字体系列 */
-	opacity: 0.75;
+	font: 0.875em sans-serif;
 	/* 设置透明度为0.75 */
+	opacity: 0.75;
 }
 
 .footer a {
-	color: #eeeeee;
 	/* 设置链接文字颜色为浅灰色 */
-	text-decoration: none;
+	color: #eeeeee;
 	/* 去掉下划线 */
+	text-decoration: none;
 }
 
 .footer a:hover {
-	color: #eeeeee;
 	/* 鼠标悬停时链接文字颜色为浅灰色 */
-	text-decoration: underline;
+	color: #eeeeee;
 	/* 添加下划线 */
+	text-decoration: underline;
 }
 
 .footer a:visited {
-	color: #eeeeee;
 	/* 设置访问过的链接文字颜色为浅灰色 */
-	text-decoration: none;
+	color: #eeeeee;
 	/* 去掉下划线 */
+	text-decoration: none;
 }
 
 .help {
-	margin: auto;
 	/* 居中显示 */
-	margin-top: 8px;
+	margin: auto;
 	/* 顶部外边距为8px */
-	margin-bottom: 8px;
+	margin-top: 8px;
 	/* 底部外边距为8px */
-	font: 0.875em sans-serif;
+	margin-bottom: 8px;
 	/* 设置字体大小和字体系列 */
-	text-align: justify;
+	font: 0.875em sans-serif;
 	/* 文本两端对齐 */
-	color: #eeeeee;
+	text-align: justify;
 	/* 设置文字颜色为浅灰色 */
-	background-color: #333333;
+	color: #eeeeee;
 	/* 设置背景颜色为深灰色 */
-	border-radius: 8px;
+	background-color: #333333;
 	/* 设置圆角半径为8px */
-	padding: 16px;
+	border-radius: 8px;
 	/* 设置内边距为16px */
-	width: 768px;
+	padding: 16px;
 	/* 宽度为768px */
+	width: 768px;
 	-webkit-filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.75));
 	/* 设置阴影效果 */
+	/* IE阴影效果 */
 	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
 	/* IE阴影效果 */
 	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
-	/* IE阴影效果 */
 }
 
 .help h1 {
-	margin-top: 0px;
 	/* 顶部外边距为0px */
-	margin-bottom: 0px;
+	margin-top: 0px;
 	/* 底部外边距为0px */
+	margin-bottom: 0px;
 }
 
 .help h2 {
-	margin-top: 0px;
 	/* 顶部外边距为0px */
-	margin-bottom: 0px;
+	margin-top: 0px;
 	/* 底部外边距为0px */
+	margin-bottom: 0px;
 }
 
 .help p {
-	margin-top: 8px;
 	/* 顶部外边距为8px */
-	margin-bottom: 24px;
+	margin-top: 8px;
 	/* 底部外边距为24px */
+	margin-bottom: 24px;
 }
 
 .help table thead tr th {
-	padding: 6px;
 	/* 设置内边距为6px */
+	padding: 6px;
 }
 
 .help table tbody tr td {
-	padding: 6px;
 	/* 设置内边距为6px */
-	background-color: #222222;
+	padding: 6px;
 	/* 设置背景颜色为深灰色 */
-	border-radius: 4px;
+	background-color: #222222;
 	/* 设置圆角半径为4px */
-	vertical-align: top;
+	border-radius: 4px;
 	/* 设置垂直对齐方式为顶部对齐 */
+	vertical-align: top;
 }
 
 .help a {
-	color: #eeeeee;
 	/* 设置链接文字颜色为浅灰色 */
+	color: #eeeeee;
 }
 
 .help a:hover {
-	color: #eeeeee;
 	/* 鼠标悬停时链接文字颜色为浅灰色 */
+	color: #eeeeee;
 }
 
 .help a:visited {
-	color: #eeeeee;
 	/* 设置访问过的链接文字颜色为浅灰色 */
+	color: #eeeeee;
+}
+
+.changes {
+	margin: auto;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	font: 0.875em sans-serif;
+	text-align: justify;
+	color: #eeeeee;
+	background-color: #333333;
+	border-radius: 8px;
+	padding: 16px;
+	width: 768px;
+	-webkit-filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.75));
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=2, Color='#000')";
+}
+
+.changes h1 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.changes h2 {
+	margin-top: 16px;
+	margin-bottom: 0px;
+}
+
+.changes h2 .date {
+	display: inline;
+	color: #aaaaaa;
+	font-weight: normal;
+	font-size: 0.8em;
+}
+
+.changes a {
+	color: #aaaaaa;
+}
+
+.changes a:hover {
+	color: #aaaaaa;
+}
+
+.changes a:visited {
+	color: #aaaaaa;
 }
