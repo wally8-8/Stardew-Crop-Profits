@@ -3,8 +3,8 @@
 
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<meta name="description" content="A Stardew Valley crop profits calculator and visualizer." />
-	<title>Stardew Profits</title>
+	<meta name="description" content="星露谷物语作物利润计算器和可视化工具。" />
+	<title>星露谷作物利润计算器</title>
 	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<link rel="stylesheet" type="text/css" href="style/style.css" />
 	<link rel="shortcut icon" type="image/png" href="img/ancientfruit.png">
@@ -78,6 +78,10 @@
 				<td>平均利润：</td>
 				<td><input type="checkbox" id="check_average" onChange="refresh()" /></td>
 			</tr>
+			<tr>
+				<td>计算单次利润：</td>
+				<td><input type="checkbox" id="check_single" onChange="refresh()" /></td>
+			</tr>
 
 		</table>
 
@@ -103,8 +107,8 @@
 						</tr>
 						<tr>
 							<td>是否允许：</td>
-							<td><input type="checkbox" id="check_sellRaw" onChange="refresh()" />
-								不能被加工的<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作物加入对比
+							<td><input type="checkbox" id="check_sellRaw" onChange="refresh()" /><label>不能被加工的<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;作物加入对比</label>
+								
 							</td>
 						</tr>
 						<tr>
@@ -159,7 +163,7 @@
 				<td><input type="checkbox" id="check_buyFert" onChange="refresh()" /></td>
 			</tr>
 			<tr id="deluxe_speed_input">
-				<td>生长激素来源：</td>
+				<td>高级生长激素来源：</td>
 				<td>
 					<select id="speed_gro_source" onChange="refresh()">
 						<option value="0" selected="true">皮埃尔</option>
@@ -180,7 +184,7 @@
 					<table cellspacing="2" class="subt">
 						<tr>
 							<td>5级能力：</td>
-							<td><input type="checkbox" id="check_skillsTill" onChange="refresh()" /> 农耕人<br /></td>
+							<td><input type="checkbox" id="check_skillsTill" onChange="refresh()" /><label>农耕人</label> <br /></td>
 						</tr>
 						<tr>
 							<td>10级能力：</td>
@@ -213,12 +217,12 @@
 					<table cellspacing="2" class="subt">
 						<tr>
 							<td>5级能力：</td>
-							<td><input type="checkbox" id="check_skillsGatherer" onChange="refresh()" /> 收集者<br />
+							<td><input type="checkbox" id="check_skillsGatherer" onChange="refresh()" /><label> 收集者</label><br />
 							</td>
 						</tr>
 						<tr>
 							<td>10级能力：</td>
-							<td><input type="checkbox" id="check_skillsBotanist" onChange="refresh()" /> 植物学家<br />
+							<td><input type="checkbox" id="check_skillsBotanist" onChange="refresh()" /><label>  植物学家</label><br />
 							</td>
 						</tr>
 					</table>
@@ -250,7 +254,7 @@
 					<div id="divhelp"><a href="help(cn).html">帮助</a></div>
 				</td>
 				<td id="tdhelp">
-					<div id="divhelp"><a href="changes.html">更新事项</a></div>
+					<div id="divhelp"><a href="changes(cn).html">更新事项</a></div>
 				</td>
 				<td id="tdhelp">
 					<div id="divhelp"><a href="#" id="reset">重置</a></div>
@@ -261,9 +265,9 @@
 	</div>
 
 	<div class="footer">
-		<p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.6.3</a> &copy; <a
+		<p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.6.8</a> &copy; <a
 				href="https://twitter.com/ConcernedApe" target="_blank">ConcernedApe</a> | Website designed by wally-88
-			| <a href="https://gitee.com/wally-88/stardew-profit-calculator" target="_blank">Stardew Profits v1.1.0</a>
+			| <a href="https://gitee.com/wally-88/stardew-profit-calculator" target="_blank">Stardew Profits v1.1.1</a>
 		</p>
 	</div>
 
