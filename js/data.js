@@ -13,6 +13,7 @@ var options = {
 	"buySeed": false, // 是否购买种子，默认不购买
 	"buyFert": false, // 是否购买肥料，默认不购买
 	"average": false, // 是否计算平均值，默认不计算
+	"single": false, // 是否只计算一次收成，默认不计算
 	"fertilizerSource": 0, // 肥料来源，默认=0，为皮埃尔出售
 	"seeds": {
 		"pierre": true, // 是否选择购买皮埃尔的种子,默认选择
