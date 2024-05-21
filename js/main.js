@@ -96,10 +96,8 @@ function formatNumber(num) {
 function harvests(cropID) {
 	var crop = seasons[options.season].crops[cropID];
 	var fertilizer = fertilizers[options.fertilizer];
-	// 茶叶在季节的最后7天每天都会开花
 	var isTea = crop.name == "茶叶";
-	// 如果作物不跨季节，则每多一个季节减去28天
-	var remainingDays = options.days - 28; // 计算剩余天数，减去一个季节的天数
+	var remainingDays = options.days - 28; // 计算剩余天数
 
 	// 如果作物跨季节生长且当前季节不是第四季节
 	if (options.crossSeason && options.season != 4) {
@@ -148,10 +146,9 @@ function harvests(cropID) {
 		if (day <= remainingDays && (!isTea || ((day - 1) % 28 + 1) > 21))
 			harvests++; // 如果条件符合，增加收成次数
 	}
-
 	// console.log("Harvests: " + harvests);
-	return harvests; // 返回最终的收成次数
-
+	return options.single && harvests > 1 ? 1 : harvests; // 返回最终的收成次数
+	//return harvests; // 返回最终的收成次数
 }
 
 /*
@@ -183,11 +180,29 @@ function minSeedCost(crop) {
  * @return 种植的作物数量，考虑了期望种植的数量和最大种子花费。
  */
 function planted(crop) {
-	// 如果允许购买种子，并且最大种子花费不为零
-	if (options.buySeed && options.maxSeedMoney !== 0) {
-		return Math.min(options.planted, Math.floor(options.maxSeedMoney / minSeedCost(crop)));// 返回已种植数量和最大种子花费除以单颗种子成本的较小值
-	} else {
-		return options.planted; // 否则返回已种植数量
+	// 如果允许购买种子但不购买肥料，并且最大种子花费不为零
+	if (options.buySeed && !options.buyFert && options.maxSeedMoney !== 0) {
+		return Math.min(options.planted, Math.floor(options.maxSeedMoney / minSeedCost(crop))); // 则返回最小值
+	}
+	// 如果允许购买种子和肥料，并且最大种子花费不为零
+	else if(options.buySeed && options.buyFert && options.maxSeedMoney !== 0) { 
+		if (options.fertilizer == 5 && options.fertilizerSource == 1)
+			return Math.min(options.planted, Math.floor(options.maxSeedMoney / (minSeedCost(crop) + fertilizers[options.fertilizer].alternate_cost))); // 则返回最小值
+		else
+			return Math.min(options.planted, Math.floor(options.maxSeedMoney / (minSeedCost(crop) + fertilizers[options.fertilizer].cost))); // 则返回最小值
+	}
+	//  如果允许购买肥料但不购买种子，并且最大种子花费不为零
+	else if (!options.buySeed && options.buyFert && options.maxSeedMoney !== 0) {
+		if (options.fertilizer == 5 && options.fertilizerSource == 1)
+			return Math.min(options.planted, Math.floor(options.maxSeedMoney / (fertilizers[options.fertilizer].alternate_cost))); // 则返回最小值
+		else
+			return Math.min(options.planted, Math.floor(options.maxSeedMoney / (fertilizers[options.fertilizer].cost))); // 则返回最小值
+	}
+	//不允许购买种子和肥料，则返回期望种植数量
+	else {
+			return options.planted; // 否则返回已种植数量
+		//Math.min(options.planted, Math.floor(options.maxSeedMoney / (minSeedCost(crop) + fertilizers[options.fertilizer].alternate_cost
+		//options.fertilizer == 5 && options.fertilizerSource == 1
 	}
 }
 
@@ -428,10 +443,10 @@ function profit(crop) {
 
 		if (options.produce == 1)  // 如果产出方式为罐头瓶
 			// 净收入增加物品数量乘以物品价格的两倍加50
-			netIncome += items * (crop.produce.jar != null ? crop.produce.jar : crop.produce.price * 2 + 50);  
+			netIncome += items * (crop.produce.jar != null ? crop.produce.jar : crop.produce.price * 2 + 50);
 		else if (options.produce == 2)  // 如果产出方式为小桶
 			// 净收入增加物品数量乘以酒桶价格或物品价格乘以酒桶修正值乘以木桶修正值
-			netIncome += items * (crop.produce.keg != null ? crop.produce.keg * caskModifier : crop.produce.price * kegModifier * caskModifier);  
+			netIncome += items * (crop.produce.keg != null ? crop.produce.keg * caskModifier : crop.produce.price * kegModifier * caskModifier);
 
 		if (options.skills.arti) {  // 如果技能选项中有工匠
 			netIncome *= 1.4;  // 净收入乘以1.4
@@ -989,7 +1004,7 @@ function renderGraph() {
 				tooltipTr = tooltipTable.append("tr");
 				if (d.produce.jarType != null) {
 					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text(language == "cn" ? "价值 (" + d.produce.jarType + ")：" : "Value (" + d.produce.jarType + "):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.price * 2 + 50)
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(options.skills.arti ? (d.produce.price * 2 + 50) * 1.4 : d.produce.price * 2 + 50 )
 						.append("div").attr("class", "gold");
 				}
 				else {
@@ -999,7 +1014,7 @@ function renderGraph() {
 				tooltipTr = tooltipTable.append("tr");
 				if (d.produce.kegType) {
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text(language == "cn" ? "价值 (" + d.produce.kegType + ")：" : "Value (" + d.produce.kegType + "):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.round(kegPrice))
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(options.skills.arti ?Math.round(Math.round(kegPrice)*1.4):Math.round(kegPrice))
 						.append("div").attr("class", "gold");
 				}
 				else {
@@ -1294,6 +1309,7 @@ function updateData() {
 	}
 
 	options.average = document.getElementById('check_average').checked;
+	options.single = document.getElementById('check_single').checked;
 
 	options.crossSeason = document.getElementById('cross_season').checked;
 
@@ -1371,8 +1387,8 @@ function updateData() {
 
 	if (document.getElementById('farming_level').value <= 0)
 		document.getElementById('farming_level').value = 1;
-	if (document.getElementById('farming_level').value > 13)
-		document.getElementById('farming_level').value = 13;
+	if (document.getElementById('farming_level').value > 10)
+		document.getElementById('farming_level').value = 10;
 	options.level = parseInt(document.getElementById('farming_level').value);
 
 	if (options.level >= 5) {
@@ -1410,8 +1426,8 @@ function updateData() {
 
 	if (document.getElementById('foraging_level').value <= 0)
 		document.getElementById('foraging_level').value = 1;
-	if (document.getElementById('foraging_level').value > 13)
-		document.getElementById('foraging_level').value = 13;
+	if (document.getElementById('foraging_level').value > 10)
+		document.getElementById('foraging_level').value = 10;
 	options.foragingLevel = parseInt(document.getElementById('foraging_level').value);
 
 	if (options.foragingLevel >= 5) {
@@ -1505,6 +1521,9 @@ function optionsLoad() {
 	options.average = validBoolean(options.average);
 	document.getElementById('check_average').checked = options.average;
 
+	options.single = validBoolean(options.single);
+	document.getElementById('check_single').checked = options.single;
+
 	options.crossSeason = validBoolean(options.crossSeason);
 	document.getElementById('cross_season').checked = options.crossSeason;
 
@@ -1550,7 +1569,7 @@ function optionsLoad() {
 	options.buyFert = validBoolean(options.buyFert);
 	document.getElementById('check_buyFert').checked = options.buyFert;
 
-	options.level = validIntRange(0, 13, options.level);
+	options.level = validIntRange(0, 10, options.level);
 	document.getElementById('farming_level').value = options.level;
 
 	options.skills.till = validBoolean(options.skills.till);
@@ -1561,7 +1580,7 @@ function optionsLoad() {
 	const binaryFlags = options.skills.agri + options.skills.arti * 2;
 	document.getElementById('select_skills').value = binaryFlags;
 
-	options.foragingLevel = validIntRange(0, 13, options.foragingLevel);
+	options.foragingLevel = validIntRange(0, 10, options.foragingLevel);
 	document.getElementById('foraging_level').value = options.foragingLevel;
 
 	options.skills.gatherer = validBoolean(options.skills.gatherer);
