@@ -1,0 +1,80 @@
+﻿
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="A Stardew Valley crop profits calculator and visualizer." />
+		<title>Stardew Profits - Changes</title>
+		<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>  
+		<link rel="stylesheet" type="text/css" href="style/style.css" />
+		<link rel="shortcut icon" type="image/png" href="img/ancientfruit.png">
+	</head>
+	<body>
+
+		<div class="title">
+		</div>
+
+		<div class="changes">
+			<h1>Change Log</h1>
+            <h2>v1.6.7 <div class="date">(2024-04-12)</div></h2>
+            <ul>
+                <li>Improved calculations when seeds are reused, especially for plants with multiple produce. <a href="https://github.com/Thorinair/Stardew-Profits/pull/64" target="_blank">[Pull Request #64]</a></li>
+                <li>Fixed replanting calculation for Coffee. <a href="https://github.com/Thorinair/Stardew-Profits/pull/64" target="_blank">[Pull Request #64]</a></li>
+                <li>Fixed an issue with wrong label association in the options. <a href="https://github.com/Thorinair/Stardew-Profits/pull/64" target="_blank">[Pull Request #64]</a></li>
+                <li>Added a toggle whether the crops should be processed into seeds for next year. <a href="https://github.com/Thorinair/Stardew-Profits/pull/65" target="_blank">[Pull Request #65]</a></li>
+            </ul>
+            <h2>v1.6.6 <div class="date">(2024-04-12)</div></h2>
+            <ul>
+                <li>Fixed an issue which caused some Keg values, like Hops, to be incorrect.</li>
+            </ul>
+            <h2>v1.6.5 <div class="date">(2024-04-11)</div></h2>
+            <ul>
+                <li>Fixed an issue which caused Jar values to be incorrect and to appear like Keg values.</li>
+                <li>Fixed issues in some Keg price calculations.</li>
+            </ul>
+            <h2>v1.6.4 <div class="date">(2024-04-03)</div></h2>
+            <ul>
+                <li>Fixed an issue which prevented some of the new 1.6 crops from appearing in the graph.</li>
+                <li>Update seed sell prices of new crops.</li>
+            </ul>
+            <h2>v1.6.3 <div class="date">(2024-03-30)</div></h2>
+            <ul>
+                <li>Fixed an issue where Pay For Seeds would keep calculating seed costs for replants even when Process & Replant was enabled.</li>
+            </ul>
+            <h2>v1.6.2 <div class="date">(2024-03-30)</div></h2>
+            <ul>
+                <li>Implemented a Process & Replant option. Enabling this option reuses half of the harvested seeds for replanting on crops which don't have a regrow time. Also forces an even number of crops.</li>
+                <li>Changes and improvements to the profit calculation formula.</li>
+                <li>Fixed an issue which would prevent prices from updating when day count was changed.</li>
+                <li>Fixed an issue which would cause values to not update when changing Foraging skill level.</li>
+            </ul>
+            <h2>v1.6.1 <div class="date">(2024-03-29)</div></h2>
+            <ul>
+                <li>Added a toggle for selling Raw crops when there is no available artisan good.</li>
+                <li>Changed the order of some options to make them more compact and logical.</li>
+                <li>Changed some option names and did proper capitalization</li>
+                <li>Changes to the Help page and README, write better descriptions.</li>
+            </ul>
+			<h2>v1.6.0 <div class="date">(2024-03-29)</div></h2>
+            <ul>
+                <li>Added Stardew Valley v1.6 seeds and crops. <a href="https://github.com/Thorinair/Stardew-Profits/pull/58" target="_blank">[Pull Request #58]</a></li>
+                <li>Added Return On Investment (ROI) calculations. <a href="https://github.com/Thorinair/Stardew-Profits/pull/54" target="_blank">[Pull Request #54]</a></li>
+                <li>Update Potato value to be more accurate. <a href="https://github.com/Thorinair/Stardew-Profits/pull/55" target="_blank">[Pull Request #55]</a></li>
+                <li>Added the Equipment value, which designates how many Jars or Kegs you will use. <a href="https://github.com/Thorinair/Stardew-Profits/issues/33" target="_blank">[Issue #33]</a></li>
+                <li>Added the Aging option which is available only for the Keg produce type. <a href="https://github.com/Thorinair/Stardew-Profits/issues/52" target="_blank">[Issue #52]</a></li>
+                <li>Added Seeds as one of the produce types. This can be used when selling Seed Maker produce. <a href="https://github.com/Thorinair/Stardew-Profits/issues/21" target="_blank">[Issue #21]</a></li>
+                <li>Made Ancient Fruit seeds unpurchasable. <a href="https://github.com/Thorinair/Stardew-Profits/issues/60" target="_blank">[Issue #60]</a></li>
+                <li>Fixed an issue where fertilizer-modified growth time wasn't updated on tooltip. <a href="https://github.com/Thorinair/Stardew-Profits/issues/39" target="_blank">[Issue #39]</a></li>
+                <li>Added a proper Change Log page. Changes will be listed here from now on for clarity.</li>
+            </ul>
+			<br />
+			<div id="divhelp"><a href="index.html">Back</a></div>
+		</div>
+
+		<div class="footer">
+            <p><a href="http://stardewvalley.net/" target="_blank">Stardew Valley v1.6.3</a> &copy; <a href="https://twitter.com/ConcernedApe" target="_blank">ConcernedApe</a> | Website designed by <a href="https://twitter.com/thorinair_music" target="_blank">Thorinair</a> | <a href="https://github.com/Thorinair/Stardew-Profits" target="_blank">Stardew Profits v1.6.7</a></p>
+		</div>
+
+		<script src="js/time.js"> </script>
+	</body>
+</html>
