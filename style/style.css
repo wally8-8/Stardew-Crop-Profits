@@ -265,7 +265,11 @@ input[type=checkbox] {
 	/* 设置鼠标移入时显示指针样式 */
 	cursor: pointer;
 }
-
+/* 锁定状态 */
+input[type="checkbox"]:disabled+label {
+	/* 设置文本颜色为白色 */
+	color: #888888;
+}
 /* 设置提示框标题样式 */
 .tooltipTitle {
 	/* 设置字体大小和字体系列 */
